@@ -1,0 +1,4 @@
+shodan
+PyYAML
+requests
+colorama

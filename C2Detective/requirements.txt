@@ -1,0 +1,13 @@
+PyYAML
+scapy[basic]
+requests
+ipaddress
+shodan
+prettytable
+colorama
+dgad
+pyja3
+Jinja2
+beautifulsoup4
+pdfkit
+tldextract
