@@ -1,4 +1,3 @@
-config/config.yml
 iocs/tor/tor_nodes.json
 iocs/crypto_domains/crypto_domains.json
 iocs/ja3/ja3_rules.json
