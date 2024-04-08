@@ -1,9 +1,8 @@
-config/config.yml
+
 reports/
-db/
 backups/
 logs/
-
+db/
 testing.py
 
 

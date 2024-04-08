@@ -1,0 +1,482 @@
+1712294088.578890; 2024-04-05 05:14:48,578; ERROR; root; Provided file 'config/config.yml' does not exist
+1712294105.052375; 2024-04-05 05:15:05,052; INFO; root; Loading configuration file 'config/config.yml'
+1712294105.057669; 2024-04-05 05:15:05,057; INFO; root; Verifying required directory structure
+1712294105.057860; 2024-04-05 05:15:05,057; INFO; root; Creating '/workspaces/codespaces-blank/C2Detective/reports' for storing analysis reports
+1712294105.058142; 2024-04-05 05:15:05,058; INFO; root; Loading 'replayAttacks.pcap' input file
+1712294125.596305; 2024-04-05 05:15:25,596; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.54s
+1712294125.970127; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Packets grouped into connections in 0.37s
+1712294125.970333; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712294125.970430; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712294125.970521; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting unique connections
+1712294125.970629; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712294125.970729; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712294125.970828; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712294125.970926; 2024-04-05 05:15:25,970; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712294131.611480; 2024-04-05 05:15:31,611; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712294133.899586; 2024-04-05 05:15:33,899; INFO; src.packet_parser; Preparing extracted data for output
+1712294133.900027; 2024-04-05 05:15:33,900; INFO; root; Detection engine configuration
+1712294133.900224; 2024-04-05 05:15:33,900; INFO; root; Loading whitelisted domain names
+1712294133.900418; 2024-04-05 05:15:33,900; INFO; root; Loading cached TOR node list
+1712294355.470681; 2024-04-05 05:19:15,470; INFO; root; Loading configuration file 'config/config.yml'
+1712294355.477905; 2024-04-05 05:19:15,477; INFO; root; Verifying required directory structure
+1712294355.478185; 2024-04-05 05:19:15,478; INFO; root; Loading 'replayAttacks.pcap' input file
+1712294375.959008; 2024-04-05 05:19:35,959; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.48s
+1712294376.392247; 2024-04-05 05:19:36,392; INFO; src.packet_parser; Packets grouped into connections in 0.43s
+1712294376.392460; 2024-04-05 05:19:36,392; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712294376.392560; 2024-04-05 05:19:36,392; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712294376.393224; 2024-04-05 05:19:36,393; INFO; src.packet_parser; Extracting unique connections
+1712294376.393506; 2024-04-05 05:19:36,393; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712294376.393786; 2024-04-05 05:19:36,393; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712294376.394056; 2024-04-05 05:19:36,394; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712294376.394347; 2024-04-05 05:19:36,394; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712294382.114049; 2024-04-05 05:19:42,114; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712294384.252070; 2024-04-05 05:19:44,252; INFO; src.packet_parser; Preparing extracted data for output
+1712294384.252331; 2024-04-05 05:19:44,252; INFO; root; Detection engine configuration
+1712294384.252494; 2024-04-05 05:19:44,252; INFO; root; Loading whitelisted domain names
+1712294384.252680; 2024-04-05 05:19:44,252; INFO; root; Loading known C2 values in TLS certificates
+1712294384.252891; 2024-04-05 05:19:44,252; INFO; root; Looking for connections with excessive frequency
+1712294384.253017; 2024-04-05 05:19:44,253; INFO; root; Connections with excessive frequency not detected
+1712294384.253145; 2024-04-05 05:19:44,253; INFO; root; Looking for connections with long duration
+1712294384.253251; 2024-04-05 05:19:44,253; INFO; root; Connections with long duration not detected
+1712294384.253355; 2024-04-05 05:19:44,253; INFO; root; Looking for unusual big HTTP message body size
+1712294384.253457; 2024-04-05 05:19:44,253; INFO; root; Unusual big HTTP message body size not detected
+1712294384.253561; 2024-04-05 05:19:44,253; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712294384.253666; 2024-04-05 05:19:44,253; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712294384.253767; 2024-04-05 05:19:44,253; INFO; root; Looking for indicators of DNS Tunneling technique
+1712294384.256191; 2024-04-05 05:19:44,256; DEBUG; filelock; Attempting to acquire lock 140560276295680 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294384.256454; 2024-04-05 05:19:44,256; DEBUG; filelock; Lock 140560276295680 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294384.256861; 2024-04-05 05:19:44,256; DEBUG; filelock; Attempting to acquire lock 140560276296976 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712294384.257093; 2024-04-05 05:19:44,257; DEBUG; filelock; Lock 140560276296976 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712294384.259348; 2024-04-05 05:19:44,259; DEBUG; urllib3.connectionpool; Starting new HTTPS connection (1): publicsuffix.org:443
+1712294384.318356; 2024-04-05 05:19:44,318; DEBUG; urllib3.connectionpool; https://publicsuffix.org:443 "GET /list/public_suffix_list.dat HTTP/1.1" 200 85184
+1712294384.330171; 2024-04-05 05:19:44,330; DEBUG; filelock; Attempting to release lock 140560276296976 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712294384.330290; 2024-04-05 05:19:44,330; DEBUG; filelock; Lock 140560276296976 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712294384.345575; 2024-04-05 05:19:44,345; DEBUG; filelock; Attempting to release lock 140560276295680 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294384.345678; 2024-04-05 05:19:44,345; DEBUG; filelock; Lock 140560276295680 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294384.371078; 2024-04-05 05:19:44,371; INFO; root; DNS Tunneling technique not detected
+1712294384.371202; 2024-04-05 05:19:44,371; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712294384.371332; 2024-04-05 05:19:44,371; INFO; root; Command & Control communication indicators not detected
+1712294384.371558; 2024-04-05 05:19:44,371; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712294384.371848; 2024-04-05 05:19:44,371; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712294384.481220; 2024-04-05 05:19:44,481; INFO; src.detection_reporter; Creating a PDF analysis report 'reports/analysis_report.pdf'...
+1712294507.292911; 2024-04-05 05:21:47,292; INFO; root; Loading configuration file 'config/config.yml'
+1712294507.300563; 2024-04-05 05:21:47,300; INFO; root; Verifying required directory structure
+1712294507.301213; 2024-04-05 05:21:47,301; INFO; root; Loading 'botnet.pcap' input file
+1712294632.255365; 2024-04-05 05:23:52,255; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 124.95s
+1712294659.748719; 2024-04-05 05:24:19,748; INFO; src.packet_parser; Packets grouped into connections in 27.49s
+1712294659.748894; 2024-04-05 05:24:19,748; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712294659.748974; 2024-04-05 05:24:19,748; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712294659.749047; 2024-04-05 05:24:19,749; INFO; src.packet_parser; Extracting unique connections
+1712294659.749117; 2024-04-05 05:24:19,749; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712294659.749186; 2024-04-05 05:24:19,749; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712294659.749254; 2024-04-05 05:24:19,749; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712294659.749321; 2024-04-05 05:24:19,749; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712294688.157302; 2024-04-05 05:24:48,157; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712294700.833604; 2024-04-05 05:25:00,833; INFO; src.packet_parser; Preparing extracted data for output
+1712294700.837744; 2024-04-05 05:25:00,837; INFO; root; Detection engine configuration
+1712294700.837932; 2024-04-05 05:25:00,837; INFO; root; Loading whitelisted domain names
+1712294700.838125; 2024-04-05 05:25:00,838; INFO; root; Loading known C2 values in TLS certificates
+1712294700.838339; 2024-04-05 05:25:00,838; INFO; root; Looking for connections with excessive frequency
+1712294700.840943; 2024-04-05 05:25:00,840; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712294700.841071; 2024-04-05 05:25:00,841; INFO; root; Listing connections with excessive frequency
+1712294700.841194; 2024-04-05 05:25:00,841; INFO; root; Looking for connections with long duration
+1712294700.950870; 2024-04-05 05:25:00,950; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712294700.951049; 2024-04-05 05:25:00,951; INFO; root; Listing detected connections with long duration
+1712294700.951238; 2024-04-05 05:25:00,951; INFO; root; Looking for unusual big HTTP message body size
+1712294700.953517; 2024-04-05 05:25:00,953; INFO; root; Detected unusual big HTTP message body size
+1712294700.953646; 2024-04-05 05:25:00,953; INFO; root; Listing connections with unusual big HTTP message body size
+1712294700.953812; 2024-04-05 05:25:00,953; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712294700.954421; 2024-04-05 05:25:00,954; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712294700.954561; 2024-04-05 05:25:00,954; INFO; root; Looking for indicators of DNS Tunneling technique
+1712294700.954880; 2024-04-05 05:25:00,954; DEBUG; filelock; Attempting to acquire lock 139957547068592 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294700.955119; 2024-04-05 05:25:00,955; DEBUG; filelock; Lock 139957547068592 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294700.956189; 2024-04-05 05:25:00,956; DEBUG; filelock; Attempting to release lock 139957547068592 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294700.956293; 2024-04-05 05:25:00,956; DEBUG; filelock; Lock 139957547068592 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712294704.766201; 2024-04-05 05:25:04,766; INFO; root; DNS Tunneling technique not detected
+1712294704.766390; 2024-04-05 05:25:04,766; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712294704.766680; 2024-04-05 05:25:04,766; INFO; root; Command & Control communication indicators detected
+1712294704.766940; 2024-04-05 05:25:04,766; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712294704.767699; 2024-04-05 05:25:04,767; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712294704.833411; 2024-04-05 05:25:04,833; INFO; src.detection_reporter; Creating a PDF analysis report 'reports/analysis_report.pdf'...
+1712295276.736737; 2024-04-05 05:34:36,736; INFO; root; Loading configuration file 'config/config.yml'
+1712295276.746696; 2024-04-05 05:34:36,746; INFO; root; Verifying required directory structure
+1712295276.747136; 2024-04-05 05:34:36,747; INFO; root; Loading 'botnet.pcap' input file
+1712295401.245800; 2024-04-05 05:36:41,245; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 124.50s
+1712295428.584387; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Packets grouped into connections in 27.34s
+1712295428.584579; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712295428.584668; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712295428.584749; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Extracting unique connections
+1712295428.584826; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712295428.584901; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712295428.584974; 2024-04-05 05:37:08,584; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712295428.585047; 2024-04-05 05:37:08,585; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712295457.149405; 2024-04-05 05:37:37,149; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712295472.900234; 2024-04-05 05:37:52,900; INFO; src.packet_parser; Preparing extracted data for output
+1712295472.904407; 2024-04-05 05:37:52,904; INFO; root; Detection engine configuration
+1712295472.904583; 2024-04-05 05:37:52,904; INFO; root; Loading whitelisted domain names
+1712295472.904776; 2024-04-05 05:37:52,904; INFO; root; Loading known C2 values in TLS certificates
+1712295472.904977; 2024-04-05 05:37:52,904; INFO; root; Looking for connections with excessive frequency
+1712295472.907698; 2024-04-05 05:37:52,907; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712295472.907806; 2024-04-05 05:37:52,907; INFO; root; Listing connections with excessive frequency
+1712295472.907959; 2024-04-05 05:37:52,907; INFO; root; Looking for connections with long duration
+1712295473.022256; 2024-04-05 05:37:53,022; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712295473.022424; 2024-04-05 05:37:53,022; INFO; root; Listing detected connections with long duration
+1712295473.022606; 2024-04-05 05:37:53,022; INFO; root; Looking for unusual big HTTP message body size
+1712295473.024869; 2024-04-05 05:37:53,024; INFO; root; Detected unusual big HTTP message body size
+1712295473.024974; 2024-04-05 05:37:53,024; INFO; root; Listing connections with unusual big HTTP message body size
+1712295473.025119; 2024-04-05 05:37:53,025; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712295473.025845; 2024-04-05 05:37:53,025; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712295473.025947; 2024-04-05 05:37:53,025; INFO; root; Looking for indicators of DNS Tunneling technique
+1712295473.026257; 2024-04-05 05:37:53,026; DEBUG; filelock; Attempting to acquire lock 140414514998736 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295473.029471; 2024-04-05 05:37:53,029; DEBUG; filelock; Lock 140414514998736 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295473.083400; 2024-04-05 05:37:53,083; DEBUG; filelock; Attempting to release lock 140414514998736 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295473.083513; 2024-04-05 05:37:53,083; DEBUG; filelock; Lock 140414514998736 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295476.715971; 2024-04-05 05:37:56,715; INFO; root; DNS Tunneling technique not detected
+1712295476.716151; 2024-04-05 05:37:56,716; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712295476.716442; 2024-04-05 05:37:56,716; INFO; root; Command & Control communication indicators detected
+1712295476.716669; 2024-04-05 05:37:56,716; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712295476.717320; 2024-04-05 05:37:56,717; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712295476.780446; 2024-04-05 05:37:56,780; INFO; root; All done. Exiting program
+1712295636.096094; 2024-04-05 05:40:36,096; INFO; root; Loading configuration file 'config/config.yml'
+1712295636.101865; 2024-04-05 05:40:36,101; INFO; root; Verifying required directory structure
+1712295636.102170; 2024-04-05 05:40:36,102; INFO; root; Loading 'botnet.pcap' input file
+1712295762.192603; 2024-04-05 05:42:42,192; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 126.09s
+1712295789.472887; 2024-04-05 05:43:09,472; INFO; src.packet_parser; Packets grouped into connections in 27.28s
+1712295789.473106; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712295789.473222; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712295789.473329; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting unique connections
+1712295789.473426; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712295789.473530; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712295789.473619; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712295789.473718; 2024-04-05 05:43:09,473; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712295818.280838; 2024-04-05 05:43:38,280; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712295830.708592; 2024-04-05 05:43:50,708; INFO; src.packet_parser; Preparing extracted data for output
+1712295830.712841; 2024-04-05 05:43:50,712; INFO; root; Detection engine configuration
+1712295830.713017; 2024-04-05 05:43:50,713; INFO; root; Loading whitelisted domain names
+1712295830.713211; 2024-04-05 05:43:50,713; INFO; root; Loading known C2 values in TLS certificates
+1712295830.713416; 2024-04-05 05:43:50,713; INFO; root; Looking for connections with excessive frequency
+1712295830.715952; 2024-04-05 05:43:50,715; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712295830.716053; 2024-04-05 05:43:50,716; INFO; root; Listing connections with excessive frequency
+1712295830.716461; 2024-04-05 05:43:50,716; INFO; root; Looking for connections with long duration
+1712295830.825821; 2024-04-05 05:43:50,825; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712295830.825978; 2024-04-05 05:43:50,825; INFO; root; Listing detected connections with long duration
+1712295830.826154; 2024-04-05 05:43:50,826; INFO; root; Looking for unusual big HTTP message body size
+1712295830.828453; 2024-04-05 05:43:50,828; INFO; root; Detected unusual big HTTP message body size
+1712295830.828556; 2024-04-05 05:43:50,828; INFO; root; Listing connections with unusual big HTTP message body size
+1712295830.828713; 2024-04-05 05:43:50,828; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712295830.829319; 2024-04-05 05:43:50,829; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712295830.829424; 2024-04-05 05:43:50,829; INFO; root; Looking for indicators of DNS Tunneling technique
+1712295830.829745; 2024-04-05 05:43:50,829; DEBUG; filelock; Attempting to acquire lock 140696286195344 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295830.829971; 2024-04-05 05:43:50,829; DEBUG; filelock; Lock 140696286195344 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295830.831083; 2024-04-05 05:43:50,831; DEBUG; filelock; Attempting to release lock 140696286195344 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295830.831161; 2024-04-05 05:43:50,831; DEBUG; filelock; Lock 140696286195344 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712295834.867717; 2024-04-05 05:43:54,867; INFO; root; DNS Tunneling technique not detected
+1712295834.867912; 2024-04-05 05:43:54,867; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712295834.868187; 2024-04-05 05:43:54,868; INFO; root; Command & Control communication indicators detected
+1712295834.868445; 2024-04-05 05:43:54,868; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712295834.869049; 2024-04-05 05:43:54,869; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712295834.935848; 2024-04-05 05:43:54,935; INFO; root; All done. Exiting program
+1712295886.250683; 2024-04-05 05:44:46,250; INFO; root; Loading configuration file 'config/config.yml'
+1712295886.256292; 2024-04-05 05:44:46,256; INFO; root; Verifying required directory structure
+1712295886.256546; 2024-04-05 05:44:46,256; INFO; root; Loading 'botnet.pcap' input file
+1712296011.959428; 2024-04-05 05:46:51,959; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 125.70s
+1712296040.063467; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Packets grouped into connections in 28.10s
+1712296040.063654; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712296040.063735; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712296040.063807; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Extracting unique connections
+1712296040.063877; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712296040.063948; 2024-04-05 05:47:20,063; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712296040.064018; 2024-04-05 05:47:20,064; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712296040.064085; 2024-04-05 05:47:20,064; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712296069.085194; 2024-04-05 05:47:49,085; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712296081.554161; 2024-04-05 05:48:01,554; INFO; src.packet_parser; Preparing extracted data for output
+1712296081.558271; 2024-04-05 05:48:01,558; INFO; root; Detection engine configuration
+1712296081.558452; 2024-04-05 05:48:01,558; INFO; root; Loading whitelisted domain names
+1712296081.558680; 2024-04-05 05:48:01,558; INFO; root; Loading known C2 values in TLS certificates
+1712296081.558906; 2024-04-05 05:48:01,558; INFO; root; Looking for connections with excessive frequency
+1712296081.561675; 2024-04-05 05:48:01,561; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712296081.561803; 2024-04-05 05:48:01,561; INFO; root; Listing connections with excessive frequency
+1712296081.561937; 2024-04-05 05:48:01,561; INFO; root; Looking for connections with long duration
+1712296081.667928; 2024-04-05 05:48:01,667; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712296081.668120; 2024-04-05 05:48:01,668; INFO; root; Listing detected connections with long duration
+1712296081.668320; 2024-04-05 05:48:01,668; INFO; root; Looking for unusual big HTTP message body size
+1712296081.670493; 2024-04-05 05:48:01,670; INFO; root; Detected unusual big HTTP message body size
+1712296081.670649; 2024-04-05 05:48:01,670; INFO; root; Listing connections with unusual big HTTP message body size
+1712296081.670819; 2024-04-05 05:48:01,670; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712296081.671444; 2024-04-05 05:48:01,671; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712296081.671568; 2024-04-05 05:48:01,671; INFO; root; Looking for indicators of DNS Tunneling technique
+1712296081.671875; 2024-04-05 05:48:01,671; DEBUG; filelock; Attempting to acquire lock 139976619650848 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296081.672110; 2024-04-05 05:48:01,672; DEBUG; filelock; Lock 139976619650848 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296081.673197; 2024-04-05 05:48:01,673; DEBUG; filelock; Attempting to release lock 139976619650848 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296081.673301; 2024-04-05 05:48:01,673; DEBUG; filelock; Lock 139976619650848 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296085.327968; 2024-04-05 05:48:05,327; INFO; root; DNS Tunneling technique not detected
+1712296085.328157; 2024-04-05 05:48:05,328; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712296085.328446; 2024-04-05 05:48:05,328; INFO; root; Command & Control communication indicators detected
+1712296085.328703; 2024-04-05 05:48:05,328; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712296085.329288; 2024-04-05 05:48:05,329; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712296085.391886; 2024-04-05 05:48:05,391; INFO; root; All done. Exiting program
+1712296312.909177; 2024-04-05 05:51:52,909; INFO; root; Loading configuration file 'config/config.yml'
+1712296312.914273; 2024-04-05 05:51:52,914; INFO; root; Verifying required directory structure
+1712296312.914531; 2024-04-05 05:51:52,914; INFO; root; Loading 'botnet.pcap' input file
+1712296436.231219; 2024-04-05 05:53:56,231; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 123.32s
+1712296463.359329; 2024-04-05 05:54:23,359; INFO; src.packet_parser; Packets grouped into connections in 27.13s
+1712296463.359667; 2024-04-05 05:54:23,359; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712296463.359850; 2024-04-05 05:54:23,359; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712296463.360044; 2024-04-05 05:54:23,360; INFO; src.packet_parser; Extracting unique connections
+1712296463.360206; 2024-04-05 05:54:23,360; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712296463.360353; 2024-04-05 05:54:23,360; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712296463.360514; 2024-04-05 05:54:23,360; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712296463.360662; 2024-04-05 05:54:23,360; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712296492.028634; 2024-04-05 05:54:52,028; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712296504.477174; 2024-04-05 05:55:04,477; INFO; src.packet_parser; Preparing extracted data for output
+1712296504.481321; 2024-04-05 05:55:04,481; INFO; root; Loading configured plugins
+1712296504.481480; 2024-04-05 05:55:04,481; INFO; root; Detection engine configuration
+1712296504.481649; 2024-04-05 05:55:04,481; INFO; root; Loading whitelisted domain names
+1712296504.481833; 2024-04-05 05:55:04,481; INFO; root; Loading known C2 values in TLS certificates
+1712296504.482053; 2024-04-05 05:55:04,482; INFO; root; Looking for connections with excessive frequency
+1712296504.485030; 2024-04-05 05:55:04,485; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712296504.485160; 2024-04-05 05:55:04,485; INFO; root; Listing connections with excessive frequency
+1712296504.485288; 2024-04-05 05:55:04,485; INFO; root; Looking for connections with long duration
+1712296504.595741; 2024-04-05 05:55:04,595; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712296504.595926; 2024-04-05 05:55:04,595; INFO; root; Listing detected connections with long duration
+1712296504.596118; 2024-04-05 05:55:04,596; INFO; root; Looking for unusual big HTTP message body size
+1712296504.598457; 2024-04-05 05:55:04,598; INFO; root; Detected unusual big HTTP message body size
+1712296504.598593; 2024-04-05 05:55:04,598; INFO; root; Listing connections with unusual big HTTP message body size
+1712296504.598763; 2024-04-05 05:55:04,598; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712296504.599367; 2024-04-05 05:55:04,599; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712296518.285072; 2024-04-05 05:55:18,285; DEBUG; tensorflow; Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+1712296519.449714; 2024-04-05 05:55:19,449; DEBUG; h5py._conv; Creating converter from 7 to 5
+1712296519.449927; 2024-04-05 05:55:19,449; DEBUG; h5py._conv; Creating converter from 5 to 7
+1712296519.450035; 2024-04-05 05:55:19,450; DEBUG; h5py._conv; Creating converter from 7 to 5
+1712296519.450123; 2024-04-05 05:55:19,450; DEBUG; h5py._conv; Creating converter from 5 to 7
+1712296527.216391; 2024-04-05 05:55:27,216; INFO; root; Hunting domain names generated by Domain Generation Algorithms (DGA)
+1712296527.226984; 2024-04-05 05:55:27,226; DEBUG; h5py._conv; Creating converter from 3 to 5
+1712296599.302820; 2024-04-05 05:56:39,302; INFO; root; Loading configuration file 'config/config.yml'
+1712296599.308470; 2024-04-05 05:56:39,308; INFO; root; Verifying required directory structure
+1712296599.308748; 2024-04-05 05:56:39,308; INFO; root; Loading 'replayAttacks.pcap' input file
+1712296619.725398; 2024-04-05 05:56:59,725; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.42s
+1712296620.133741; 2024-04-05 05:57:00,133; INFO; src.packet_parser; Packets grouped into connections in 0.41s
+1712296620.134026; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712296620.134193; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712296620.134354; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting unique connections
+1712296620.134505; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712296620.134697; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712296620.134845; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712296620.134995; 2024-04-05 05:57:00,134; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712296625.781513; 2024-04-05 05:57:05,781; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712296628.069683; 2024-04-05 05:57:08,069; INFO; src.packet_parser; Preparing extracted data for output
+1712296628.069921; 2024-04-05 05:57:08,069; INFO; root; Loading configured plugins
+1712296628.070034; 2024-04-05 05:57:08,070; INFO; root; Detection engine configuration
+1712296628.070168; 2024-04-05 05:57:08,070; INFO; root; Loading whitelisted domain names
+1712296628.070342; 2024-04-05 05:57:08,070; INFO; root; Loading known C2 values in TLS certificates
+1712296628.070533; 2024-04-05 05:57:08,070; INFO; root; Looking for connections with excessive frequency
+1712296628.070661; 2024-04-05 05:57:08,070; INFO; root; Connections with excessive frequency not detected
+1712296628.070751; 2024-04-05 05:57:08,070; INFO; root; Looking for connections with long duration
+1712296628.070847; 2024-04-05 05:57:08,070; INFO; root; Connections with long duration not detected
+1712296628.070940; 2024-04-05 05:57:08,070; INFO; root; Looking for unusual big HTTP message body size
+1712296628.071031; 2024-04-05 05:57:08,071; INFO; root; Unusual big HTTP message body size not detected
+1712296628.071125; 2024-04-05 05:57:08,071; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712296628.071208; 2024-04-05 05:57:08,071; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712296628.071302; 2024-04-05 05:57:08,071; INFO; root; Looking for indicators of DNS Tunneling technique
+1712296628.074254; 2024-04-05 05:57:08,074; DEBUG; filelock; Attempting to acquire lock 139738467215072 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296628.074634; 2024-04-05 05:57:08,074; DEBUG; filelock; Lock 139738467215072 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296628.076334; 2024-04-05 05:57:08,076; DEBUG; filelock; Attempting to release lock 139738467215072 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296628.076506; 2024-04-05 05:57:08,076; DEBUG; filelock; Lock 139738467215072 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296628.115855; 2024-04-05 05:57:08,115; INFO; root; DNS Tunneling technique not detected
+1712296628.116157; 2024-04-05 05:57:08,116; INFO; root; Using plugin C2Hunter for enhanced detection capabilities
+1712296628.116339; 2024-04-05 05:57:08,116; INFO; root; Detecting malicious IP addresses which received/initiated connections
+1712296637.142963; 2024-04-05 05:57:17,142; INFO; root; C2 IP addresses which received/initiated connections not detected
+1712296637.143163; 2024-04-05 05:57:17,143; INFO; root; Detecting C2 domain names which received/initiated connections
+1712296637.680094; 2024-04-05 05:57:17,680; INFO; root; C2 domain names which received/initiated connections not detected
+1712296637.680277; 2024-04-05 05:57:17,680; INFO; root; Detecting C2 related URLs
+1712296637.680508; 2024-04-05 05:57:17,680; INFO; root; C2 related URLs not detected
+1712296637.680608; 2024-04-05 05:57:17,680; INFO; root; Detecting potential fingerprinted C2 IP addresses which received/initiated connections
+1712296696.854986; 2024-04-05 05:58:16,854; INFO; root; Loading configuration file 'config/config.yml'
+1712296696.860894; 2024-04-05 05:58:16,860; INFO; root; Verifying required directory structure
+1712296696.861152; 2024-04-05 05:58:16,861; INFO; root; Loading 'replayAttacks.pcap' input file
+1712296717.140380; 2024-04-05 05:58:37,140; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.28s
+1712296717.622294; 2024-04-05 05:58:37,622; INFO; src.packet_parser; Packets grouped into connections in 0.48s
+1712296717.622756; 2024-04-05 05:58:37,622; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712296717.623005; 2024-04-05 05:58:37,623; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712296717.623242; 2024-04-05 05:58:37,623; INFO; src.packet_parser; Extracting unique connections
+1712296717.623480; 2024-04-05 05:58:37,623; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712296717.623721; 2024-04-05 05:58:37,623; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712296717.623964; 2024-04-05 05:58:37,623; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712296717.624055; 2024-04-05 05:58:37,624; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712296723.333632; 2024-04-05 05:58:43,333; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712296725.528153; 2024-04-05 05:58:45,528; INFO; src.packet_parser; Preparing extracted data for output
+1712296725.528777; 2024-04-05 05:58:45,528; INFO; root; Loading configured plugins
+1712296725.529203; 2024-04-05 05:58:45,529; INFO; root; Detection engine configuration
+1712296725.529510; 2024-04-05 05:58:45,529; INFO; root; Loading whitelisted domain names
+1712296725.529839; 2024-04-05 05:58:45,529; INFO; root; Loading known C2 values in TLS certificates
+1712296725.530287; 2024-04-05 05:58:45,530; INFO; root; Looking for connections with excessive frequency
+1712296725.530595; 2024-04-05 05:58:45,530; INFO; root; Connections with excessive frequency not detected
+1712296725.530884; 2024-04-05 05:58:45,530; INFO; root; Looking for connections with long duration
+1712296725.531085; 2024-04-05 05:58:45,531; INFO; root; Connections with long duration not detected
+1712296725.531192; 2024-04-05 05:58:45,531; INFO; root; Looking for unusual big HTTP message body size
+1712296725.531301; 2024-04-05 05:58:45,531; INFO; root; Unusual big HTTP message body size not detected
+1712296725.531422; 2024-04-05 05:58:45,531; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712296725.531529; 2024-04-05 05:58:45,531; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712296725.531630; 2024-04-05 05:58:45,531; INFO; root; Looking for indicators of DNS Tunneling technique
+1712296725.534438; 2024-04-05 05:58:45,534; DEBUG; filelock; Attempting to acquire lock 140612318373504 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296725.534764; 2024-04-05 05:58:45,534; DEBUG; filelock; Lock 140612318373504 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296725.536012; 2024-04-05 05:58:45,536; DEBUG; filelock; Attempting to release lock 140612318373504 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296725.536111; 2024-04-05 05:58:45,536; DEBUG; filelock; Lock 140612318373504 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712296725.562973; 2024-04-05 05:58:45,562; INFO; root; DNS Tunneling technique not detected
+1712296725.563283; 2024-04-05 05:58:45,563; INFO; root; Using plugin C2Hunter for enhanced detection capabilities
+1712296725.563404; 2024-04-05 05:58:45,563; INFO; root; Detecting malicious IP addresses which received/initiated connections
+1712296725.825248; 2024-04-05 05:58:45,825; INFO; root; C2 IP addresses which received/initiated connections not detected
+1712296725.825454; 2024-04-05 05:58:45,825; INFO; root; Detecting C2 domain names which received/initiated connections
+1712296726.344728; 2024-04-05 05:58:46,344; INFO; root; C2 domain names which received/initiated connections not detected
+1712296726.344939; 2024-04-05 05:58:46,344; INFO; root; Detecting C2 related URLs
+1712296726.345172; 2024-04-05 05:58:46,345; INFO; root; C2 related URLs not detected
+1712296726.345293; 2024-04-05 05:58:46,345; INFO; root; Detecting potential fingerprinted C2 IP addresses which received/initiated connections
+1712296726.345498; 2024-04-05 05:58:46,345; INFO; root; Potential C2 IP addresses which received/initiated connections not detected
+1712296726.345610; 2024-04-05 05:58:46,345; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712296726.345740; 2024-04-05 05:58:46,345; INFO; root; Command & Control communication indicators not detected
+1712296726.345980; 2024-04-05 05:58:46,345; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712296726.346376; 2024-04-05 05:58:46,346; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712296726.409267; 2024-04-05 05:58:46,409; INFO; root; All done. Exiting program
+1712296804.064214; 2024-04-05 06:00:04,064; INFO; root; Loading configuration file 'config/config.yml'
+1712296804.072210; 2024-04-05 06:00:04,072; INFO; root; Verifying required directory structure
+1712296804.072493; 2024-04-05 06:00:04,072; INFO; root; Loading 'botnet.pcap' input file
+1712296930.157325; 2024-04-05 06:02:10,157; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 126.08s
+1712296957.528613; 2024-04-05 06:02:37,528; INFO; src.packet_parser; Packets grouped into connections in 27.37s
+1712296957.528782; 2024-04-05 06:02:37,528; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712296957.528861; 2024-04-05 06:02:37,528; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712296957.528934; 2024-04-05 06:02:37,528; INFO; src.packet_parser; Extracting unique connections
+1712296957.529006; 2024-04-05 06:02:37,529; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712296957.529091; 2024-04-05 06:02:37,529; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712296957.529166; 2024-04-05 06:02:37,529; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712296957.529241; 2024-04-05 06:02:37,529; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712296986.788704; 2024-04-05 06:03:06,788; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712297000.158432; 2024-04-05 06:03:20,158; INFO; src.packet_parser; Preparing extracted data for output
+1712297000.165086; 2024-04-05 06:03:20,165; INFO; root; Loading configured plugins
+1712297000.165311; 2024-04-05 06:03:20,165; INFO; root; Detection engine configuration
+1712297000.165549; 2024-04-05 06:03:20,165; INFO; root; Loading whitelisted domain names
+1712297000.165812; 2024-04-05 06:03:20,165; INFO; root; Loading known C2 values in TLS certificates
+1712297000.166090; 2024-04-05 06:03:20,166; INFO; root; Looking for connections with excessive frequency
+1712297000.169429; 2024-04-05 06:03:20,169; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712297000.169622; 2024-04-05 06:03:20,169; INFO; root; Listing connections with excessive frequency
+1712297000.169834; 2024-04-05 06:03:20,169; INFO; root; Looking for connections with long duration
+1712297000.311029; 2024-04-05 06:03:20,311; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712297000.311192; 2024-04-05 06:03:20,311; INFO; root; Listing detected connections with long duration
+1712297000.311365; 2024-04-05 06:03:20,311; INFO; root; Looking for unusual big HTTP message body size
+1712297000.313395; 2024-04-05 06:03:20,313; INFO; root; Detected unusual big HTTP message body size
+1712297000.313492; 2024-04-05 06:03:20,313; INFO; root; Listing connections with unusual big HTTP message body size
+1712297000.313626; 2024-04-05 06:03:20,313; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712297000.314227; 2024-04-05 06:03:20,314; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712297000.314328; 2024-04-05 06:03:20,314; INFO; root; Looking for indicators of DNS Tunneling technique
+1712297000.314637; 2024-04-05 06:03:20,314; DEBUG; filelock; Attempting to acquire lock 140709283031952 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712297000.314874; 2024-04-05 06:03:20,314; DEBUG; filelock; Lock 140709283031952 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712297000.315985; 2024-04-05 06:03:20,315; DEBUG; filelock; Attempting to release lock 140709283031952 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712297000.316073; 2024-04-05 06:03:20,316; DEBUG; filelock; Lock 140709283031952 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712297004.192619; 2024-04-05 06:03:24,192; INFO; root; DNS Tunneling technique not detected
+1712297004.192848; 2024-04-05 06:03:24,192; INFO; root; Using plugin C2Hunter for enhanced detection capabilities
+1712297004.192936; 2024-04-05 06:03:24,192; INFO; root; Detecting malicious IP addresses which received/initiated connections
+1712297469.164095; 2024-04-05 06:11:09,164; INFO; root; C2 IP addresses which received/initiated connections detected
+1712297469.164317; 2024-04-05 06:11:09,164; INFO; root; Searching for C2 IPs in the grouped connections ...
+1712297469.392817; 2024-04-05 06:11:09,392; INFO; root; Listing detected C2 IP addresses
+1712297469.393288; 2024-04-05 06:11:09,393; INFO; root; Detecting C2 domain names which received/initiated connections
+1712297673.587049; 2024-04-05 06:14:33,587; INFO; root; C2 domain names which received/initiated connections detected
+1712297673.587242; 2024-04-05 06:14:33,587; INFO; root; Listing detected domain names for C2 servers
+1712297673.587346; 2024-04-05 06:14:33,587; INFO; root; Detecting C2 related URLs
+1712297705.955240; 2024-04-05 06:15:05,955; INFO; root; C2 related URLs not detected
+1712297705.955443; 2024-04-05 06:15:05,955; INFO; root; Detecting potential fingerprinted C2 IP addresses which received/initiated connections
+1712297705.955867; 2024-04-05 06:15:05,955; INFO; root; Potential C2 IP addresses which received/initiated connections not detected
+1712297705.955963; 2024-04-05 06:15:05,955; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712297705.956323; 2024-04-05 06:15:05,956; INFO; root; Command & Control communication indicators detected
+1712297705.956553; 2024-04-05 06:15:05,956; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712297705.957109; 2024-04-05 06:15:05,957; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712297706.019718; 2024-04-05 06:15:06,019; INFO; root; All done. Exiting program
+1712298136.883469; 2024-04-05 06:22:16,883; INFO; root; Loading configuration file 'config/config.yml'
+1712298136.889782; 2024-04-05 06:22:16,889; INFO; root; Verifying required directory structure
+1712298136.890072; 2024-04-05 06:22:16,890; INFO; root; Loading 'replayAttacks.pcap' input file
+1712298157.344220; 2024-04-05 06:22:37,344; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.45s
+1712298157.774417; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Packets grouped into connections in 0.43s
+1712298157.774620; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712298157.774702; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712298157.774773; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Extracting unique connections
+1712298157.774841; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712298157.774907; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712298157.774973; 2024-04-05 06:22:37,774; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712298157.775038; 2024-04-05 06:22:37,775; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712298163.445733; 2024-04-05 06:22:43,445; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712298165.606134; 2024-04-05 06:22:45,606; INFO; src.packet_parser; Preparing extracted data for output
+1712298165.606359; 2024-04-05 06:22:45,606; INFO; root; Loading configured plugins
+1712298165.606486; 2024-04-05 06:22:45,606; INFO; root; Detection engine configuration
+1712298165.606637; 2024-04-05 06:22:45,606; INFO; root; Loading whitelisted domain names
+1712298165.606793; 2024-04-05 06:22:45,606; INFO; root; Loading known C2 values in TLS certificates
+1712298165.606985; 2024-04-05 06:22:45,606; INFO; root; Looking for connections with excessive frequency
+1712298165.607085; 2024-04-05 06:22:45,607; INFO; root; Connections with excessive frequency not detected
+1712298165.607165; 2024-04-05 06:22:45,607; INFO; root; Looking for connections with long duration
+1712298165.607245; 2024-04-05 06:22:45,607; INFO; root; Connections with long duration not detected
+1712298165.607332; 2024-04-05 06:22:45,607; INFO; root; Looking for unusual big HTTP message body size
+1712298165.607405; 2024-04-05 06:22:45,607; INFO; root; Unusual big HTTP message body size not detected
+1712298165.607492; 2024-04-05 06:22:45,607; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712298165.607576; 2024-04-05 06:22:45,607; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712298165.607659; 2024-04-05 06:22:45,607; INFO; root; Looking for indicators of DNS Tunneling technique
+1712298165.609667; 2024-04-05 06:22:45,609; DEBUG; filelock; Attempting to acquire lock 140082081080336 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712298165.609899; 2024-04-05 06:22:45,609; DEBUG; filelock; Lock 140082081080336 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712298165.611203; 2024-04-05 06:22:45,611; DEBUG; filelock; Attempting to release lock 140082081080336 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712298165.611290; 2024-04-05 06:22:45,611; DEBUG; filelock; Lock 140082081080336 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712298165.638614; 2024-04-05 06:22:45,638; INFO; root; DNS Tunneling technique not detected
+1712298165.638827; 2024-04-05 06:22:45,638; INFO; root; Using plugin C2Hunter for enhanced detection capabilities
+1712298165.638939; 2024-04-05 06:22:45,638; INFO; root; Detecting malicious IP addresses which received/initiated connections
+1712298165.892440; 2024-04-05 06:22:45,892; INFO; root; C2 IP addresses which received/initiated connections not detected
+1712298165.892624; 2024-04-05 06:22:45,892; INFO; root; Detecting C2 domain names which received/initiated connections
+1712298166.482805; 2024-04-05 06:22:46,482; INFO; root; C2 domain names which received/initiated connections not detected
+1712298166.482988; 2024-04-05 06:22:46,482; INFO; root; Detecting C2 related URLs
+1712298166.483211; 2024-04-05 06:22:46,483; INFO; root; C2 related URLs not detected
+1712298166.483310; 2024-04-05 06:22:46,483; INFO; root; Detecting potential fingerprinted C2 IP addresses which received/initiated connections
+1712298166.483516; 2024-04-05 06:22:46,483; INFO; root; Potential C2 IP addresses which received/initiated connections not detected
+1712298166.483612; 2024-04-05 06:22:46,483; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712298166.483727; 2024-04-05 06:22:46,483; INFO; root; Command & Control communication indicators not detected
+1712298166.483948; 2024-04-05 06:22:46,483; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712298166.484291; 2024-04-05 06:22:46,484; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712298166.545736; 2024-04-05 06:22:46,545; INFO; root; All done. Exiting program
+1712555331.812423; 2024-04-08 05:48:51,812; INFO; root; Loading configuration file 'config/config.yml'
+1712555331.823937; 2024-04-08 05:48:51,823; INFO; root; Verifying required directory structure
+1712555331.824247; 2024-04-08 05:48:51,824; INFO; root; Loading 'botnet.pcap' input file
+1712555457.384281; 2024-04-08 05:50:57,384; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 125.56s
+1712555484.566109; 2024-04-08 05:51:24,566; INFO; src.packet_parser; Packets grouped into connections in 27.18s
+1712555484.566432; 2024-04-08 05:51:24,566; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1712555484.566626; 2024-04-08 05:51:24,566; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1712555484.566819; 2024-04-08 05:51:24,566; INFO; src.packet_parser; Extracting unique connections
+1712555484.567006; 2024-04-08 05:51:24,567; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1712555484.567197; 2024-04-08 05:51:24,567; INFO; src.packet_parser; Filtering and storing with DNS layer
+1712555484.567412; 2024-04-08 05:51:24,567; INFO; src.packet_parser; Extracting domain names from DNS queries
+1712555484.567601; 2024-04-08 05:51:24,567; INFO; src.packet_parser; Extracting data from HTTP sessions
+1712555513.280427; 2024-04-08 05:51:53,280; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1712555528.270377; 2024-04-08 05:52:08,270; INFO; src.packet_parser; Preparing extracted data for output
+1712555528.274761; 2024-04-08 05:52:08,274; INFO; root; Detection engine configuration
+1712555528.274953; 2024-04-08 05:52:08,274; INFO; root; Loading whitelisted domain names
+1712555528.277959; 2024-04-08 05:52:08,277; INFO; root; Loading known C2 values in TLS certificates
+1712555528.280613; 2024-04-08 05:52:08,280; INFO; root; Looking for connections with excessive frequency
+1712555528.283256; 2024-04-08 05:52:08,283; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1712555528.283415; 2024-04-08 05:52:08,283; INFO; root; Listing connections with excessive frequency
+1712555528.283555; 2024-04-08 05:52:08,283; INFO; root; Looking for connections with long duration
+1712555528.428404; 2024-04-08 05:52:08,428; INFO; root; Detected 9 connections with long duration. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': '1302', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 14890}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1302', 'duration': 14881}, {'src_ip': '147.32.84.165', 'src_port': '1333', 'dst_ip': '173.192.170.88', 'dst_port': '80', 'duration': 16468}, {'src_ip': '173.192.170.88', 'src_port': '80', 'dst_ip': '147.32.84.165', 'dst_port': '1333', 'duration': 16468}, {'src_ip': '147.32.84.165', 'src_port': '1398', 'dst_ip': '184.154.132.106', 'dst_port': '9541', 'duration': 16303}, {'src_ip': '184.154.132.106', 'src_port': '9541', 'dst_ip': '147.32.84.165', 'dst_port': '1398', 'duration': 16303}, {'src_ip': '147.32.84.165', 'src_port': '2146', 'dst_ip': '212.117.174.7', 'dst_port': '4506', 'duration': 14740}, {'src_ip': '147.32.84.165', 'src_port': '2343', 'dst_ip': '213.246.53.125', 'dst_port': '5296', 'duration': 15400}, {'src_ip': '213.246.53.125', 'src_port': '5296', 'dst_ip': '147.32.84.165', 'dst_port': '2343', 'duration': 15424}])
+1712555528.428614; 2024-04-08 05:52:08,428; INFO; root; Listing detected connections with long duration
+1712555528.428816; 2024-04-08 05:52:08,428; INFO; root; Looking for unusual big HTTP message body size
+1712555528.431010; 2024-04-08 05:52:08,431; INFO; root; Detected unusual big HTTP message body size
+1712555528.431129; 2024-04-08 05:52:08,431; INFO; root; Listing connections with unusual big HTTP message body size
+1712555528.431298; 2024-04-08 05:52:08,431; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1712555528.431956; 2024-04-08 05:52:08,431; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1712555528.432085; 2024-04-08 05:52:08,432; INFO; root; Looking for indicators of DNS Tunneling technique
+1712555528.432711; 2024-04-08 05:52:08,432; DEBUG; filelock; Attempting to acquire lock 140564665887920 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712555528.432952; 2024-04-08 05:52:08,432; DEBUG; filelock; Lock 140564665887920 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712555528.433324; 2024-04-08 05:52:08,433; DEBUG; filelock; Attempting to acquire lock 140564665889168 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712555528.433524; 2024-04-08 05:52:08,433; DEBUG; filelock; Lock 140564665889168 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712555528.439547; 2024-04-08 05:52:08,439; DEBUG; urllib3.connectionpool; Starting new HTTPS connection (1): publicsuffix.org:443
+1712555528.508462; 2024-04-08 05:52:08,508; DEBUG; urllib3.connectionpool; https://publicsuffix.org:443 "GET /list/public_suffix_list.dat HTTP/1.1" 200 85184
+1712555528.518775; 2024-04-08 05:52:08,518; DEBUG; filelock; Attempting to release lock 140564665889168 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712555528.518868; 2024-04-08 05:52:08,518; DEBUG; filelock; Lock 140564665889168 released on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/urls/62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+1712555528.538255; 2024-04-08 05:52:08,538; DEBUG; filelock; Attempting to release lock 140564665887920 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712555528.538339; 2024-04-08 05:52:08,538; DEBUG; filelock; Lock 140564665887920 released on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1712555532.404579; 2024-04-08 05:52:12,404; INFO; root; DNS Tunneling technique not detected
+1712555532.404761; 2024-04-08 05:52:12,404; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1712555532.405059; 2024-04-08 05:52:12,405; INFO; root; Command & Control communication indicators detected
+1712555532.405317; 2024-04-08 05:52:12,405; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1712555532.406044; 2024-04-08 05:52:12,406; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1712555532.493832; 2024-04-08 05:52:12,493; INFO; root; All done. Exiting program

@@ -1,0 +1,213 @@
+{
+    "aggregated_ip_addresses": [
+        "173.192.170.88",
+        "147.32.84.165",
+        "195.88.191.59",
+        "184.154.132.106",
+        "213.246.53.125",
+        "195.113.232.82",
+        "212.117.174.7"
+    ],
+    "aggregated_domain_names": [],
+    "aggregated_urls": [
+        "nocomcom.com/bl/client.exe?t=0.9562799",
+        "nocomcom.com/sv/fjuivgfhurew.exe?t=0.3069879",
+        "cdn.ad4game.com/e7f490f540f2ecbdee2d25826380598a.swf",
+        "nocomcom.com/bl/chooseee.exe?t=0.8925135"
+    ],
+    "filepath": "botnet.pcap",
+    "excessive_frequency": [
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": 2343,
+            "dst_ip": "213.246.53.125",
+            "dst_port": 5296,
+            "frequency": 34986
+        }
+    ],
+    "long_connection": [
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": "1302",
+            "dst_ip": "173.192.170.88",
+            "dst_port": "80",
+            "duration": 14890
+        },
+        {
+            "src_ip": "173.192.170.88",
+            "src_port": "80",
+            "dst_ip": "147.32.84.165",
+            "dst_port": "1302",
+            "duration": 14881
+        },
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": "1333",
+            "dst_ip": "173.192.170.88",
+            "dst_port": "80",
+            "duration": 16468
+        },
+        {
+            "src_ip": "173.192.170.88",
+            "src_port": "80",
+            "dst_ip": "147.32.84.165",
+            "dst_port": "1333",
+            "duration": 16468
+        },
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": "1398",
+            "dst_ip": "184.154.132.106",
+            "dst_port": "9541",
+            "duration": 16303
+        },
+        {
+            "src_ip": "184.154.132.106",
+            "src_port": "9541",
+            "dst_ip": "147.32.84.165",
+            "dst_port": "1398",
+            "duration": 16303
+        },
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": "2146",
+            "dst_ip": "212.117.174.7",
+            "dst_port": "4506",
+            "duration": 14740
+        },
+        {
+            "src_ip": "147.32.84.165",
+            "src_port": "2343",
+            "dst_ip": "213.246.53.125",
+            "dst_port": "5296",
+            "duration": 15400
+        },
+        {
+            "src_ip": "213.246.53.125",
+            "src_port": "5296",
+            "dst_ip": "147.32.84.165",
+            "dst_port": "2343",
+            "duration": 15424
+        }
+    ],
+    "big_HTTP_body_size": [
+        {
+            "timestamp": "2011-08-10 09:07:17",
+            "src_ip": "195.88.191.59",
+            "src_port": 80,
+            "dst_ip": "147.32.84.165",
+            "dst_port": 1060,
+            "method": "GET",
+            "url": "nocomcom.com/bl/chooseee.exe?t=0.8925135",
+            "path": "/bl/chooseee.exe?t=0.8925135",
+            "http_headers": {
+                "Accept_Ranges": "bytes",
+                "Cache_Control": "must-revalidate",
+                "Connection": "close",
+                "Content_Length": "230912",
+                "Content_Type": "application/octet-stream",
+                "Date": "Wed, 10 Aug 2011 09:08:13 GMT",
+                "Expires": "Thu, 11 Aug 2011 09:08:13 GMT",
+                "Last_Modified": "Tue, 09 Aug 2011 22:13:29 GMT",
+                "Server": "nginx",
+                "Http_Version": "HTTP/1.1",
+                "Status_Code": "200",
+                "Reason_Phrase": "OK"
+            }
+        },
+        {
+            "timestamp": "2011-08-10 09:07:20",
+            "src_ip": "195.88.191.59",
+            "src_port": 80,
+            "dst_ip": "147.32.84.165",
+            "dst_port": 1060,
+            "method": "GET",
+            "url": "nocomcom.com/bl/chooseee.exe?t=0.8925135",
+            "path": "/bl/chooseee.exe?t=0.8925135",
+            "http_headers": {
+                "Accept_Ranges": "bytes",
+                "Cache_Control": "must-revalidate",
+                "Connection": "close",
+                "Content_Length": "230912",
+                "Content_Type": "application/octet-stream",
+                "Date": "Wed, 10 Aug 2011 09:08:13 GMT",
+                "Expires": "Thu, 11 Aug 2011 09:08:13 GMT",
+                "Last_Modified": "Tue, 09 Aug 2011 22:13:29 GMT",
+                "Server": "nginx",
+                "Http_Version": "HTTP/1.1",
+                "Status_Code": "200",
+                "Reason_Phrase": "OK"
+            }
+        },
+        {
+            "timestamp": "2011-08-10 09:08:37",
+            "src_ip": "195.88.191.59",
+            "src_port": 80,
+            "dst_ip": "147.32.84.165",
+            "dst_port": 1270,
+            "method": "GET",
+            "url": "nocomcom.com/bl/client.exe?t=0.9562799",
+            "path": "/bl/client.exe?t=0.9562799",
+            "http_headers": {
+                "Accept_Ranges": "bytes",
+                "Cache_Control": "must-revalidate",
+                "Connection": "close",
+                "Content_Length": "93696",
+                "Content_Type": "application/octet-stream",
+                "Date": "Wed, 10 Aug 2011 09:09:32 GMT",
+                "Expires": "Thu, 11 Aug 2011 09:09:32 GMT",
+                "Last_Modified": "Tue, 09 Aug 2011 07:56:33 GMT",
+                "Server": "nginx",
+                "Http_Version": "HTTP/1.1",
+                "Status_Code": "200",
+                "Reason_Phrase": "OK"
+            }
+        },
+        {
+            "timestamp": "2011-08-10 09:09:00",
+            "src_ip": "195.88.191.59",
+            "src_port": 80,
+            "dst_ip": "147.32.84.165",
+            "dst_port": 1283,
+            "method": "GET",
+            "url": "nocomcom.com/sv/fjuivgfhurew.exe?t=0.3069879",
+            "path": "/sv/fjuivgfhurew.exe?t=0.3069879",
+            "http_headers": {
+                "Accept_Ranges": "bytes",
+                "Cache_Control": "must-revalidate",
+                "Connection": "close",
+                "Content_Length": "93184",
+                "Content_Type": "application/octet-stream",
+                "Date": "Wed, 10 Aug 2011 09:09:56 GMT",
+                "Expires": "Thu, 11 Aug 2011 09:09:56 GMT",
+                "Last_Modified": "Mon, 08 Aug 2011 20:55:58 GMT",
+                "Server": "nginx",
+                "Http_Version": "HTTP/1.1",
+                "Status_Code": "200",
+                "Reason_Phrase": "OK"
+            }
+        },
+        {
+            "timestamp": "2011-08-10 13:17:02",
+            "src_ip": "195.113.232.82",
+            "src_port": 80,
+            "dst_ip": "147.32.84.165",
+            "dst_port": 2082,
+            "method": "GET",
+            "url": "cdn.ad4game.com/e7f490f540f2ecbdee2d25826380598a.swf",
+            "path": "/e7f490f540f2ecbdee2d25826380598a.swf",
+            "http_headers": {
+                "Accept_Ranges": "bytes",
+                "Connection": "keep-alive",
+                "Content_Length": "56773",
+                "Content_Type": "application/x-shockwave-flash",
+                "Date": "Wed, 10 Aug 2011 13:17:02 GMT",
+                "Last_Modified": "Wed, 22 Jun 2011 09:31:11 GMT",
+                "Server": "nginx/1.0.0",
+                "Http_Version": "HTTP/1.1",
+                "Status_Code": "200",
+                "Reason_Phrase": "OK"
+            }
+        }
+    ]
+}
