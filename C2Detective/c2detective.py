@@ -36,6 +36,7 @@ def is_platform_supported():
 
 
 def is_valid_file(filename, filetype):
+    print(os.getcwd())
     if not os.path.exists(filename):
         print(
             f"[{time.strftime('%H:%M:%S')}] [ERROR] Provided file '{filename}' does not exist")
@@ -224,8 +225,6 @@ def init_logger():
 
 
 def main():
-    os.system("clear")
-
     init_logger()
     is_platform_supported()
 
@@ -398,9 +397,9 @@ def main():
     detection_engine = DetectionEngine(c2_indicators_total_count, analyst_profile, packet_parser)
     print(('- ' * (terminal_size.columns // 2)) + ('-' * (terminal_size.columns % 2)))
     detection_engine.detect_connections_with_excessive_frequency()
-    detection_engine.detect_long_connection()
-    detection_engine.detect_big_http_body_size()
-    detection_engine.detect_known_c2_tls_values()
+    # detection_engine.detect_long_connection()
+    # detection_engine.detect_big_http_body_size()
+    # detection_engine.detect_known_c2_tls_values()
     # detection_engine.detect_malicious_ja3_digest()
     if args.dga:
         detection_engine.detect_dga()
@@ -455,6 +454,7 @@ def main():
         if args.enrich_iocs:
             detection_reporter.write_enriched_iocs_to_file()
         detection_reporter.create_html_analysis_report()
+        detection_reporter.write_extracted_data_to_file("result")
         # detection_reporter.create_pdf_analysis_report()
     else:
         print(

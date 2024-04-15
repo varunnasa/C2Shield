@@ -23,10 +23,14 @@ class DetectionReporter:
         self.enriched_data_output_path = os.path.join(self.report_dir, "enriched_iocs.json")
         self.thresholds = thresholds
         self.extracted_data = extracted_data
+        print("EXTRACTED DATA",extracted_data)
         self.detected_iocs = detected_iocs
+        print("DETECTED IOCS",detected_iocs)
         self.enriched_iocs = enriched_iocs
         self.c2_indicators_total_count = c2_indicators_total_count
+        print("COUNT",c2_indicators_total_count)
         self.c2_indicators_count = c2_indicators_count
+        print("only count",c2_indicators_count)
         self.dga_detection = dga_detection
         self.plugin_c2hunter = plugin_c2hunter
 
@@ -89,3 +93,11 @@ class DetectionReporter:
             toc_script.decompose()
 
         pdfkit.from_string(str(soup), self.pdf_analysis_report_path, options=options)
+    def write_extracted_data_to_file(self, filename):
+
+        log_filename = filename + ".log"  # Append ".log" to the filename
+        print(f"[{time.strftime('%H:%M:%S')}] [INFO] Writing extracted data to '{log_filename}' file ...")
+        self.logger.info(f"Writing extracted data to '{log_filename}'")
+
+        with open(log_filename, "w") as output:
+            output.write(json.dumps(self.extracted_data,indent=4))

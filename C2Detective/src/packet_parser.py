@@ -44,8 +44,8 @@ class PacketParser:
         self.start_time, self.end_time, self.public_src_ip_list, self.public_dst_ip_list, self.public_ip_list, self.external_tcp_connections, self.connection_frequency, self.dns_packets, self.domain_names, self.http_sessions, self.http_payloads, self.unique_urls = self.extract_packet_data()
         self.src_unique_ip_list, self.dst_unique_ip_list, self.combined_unique_ip_list = self.get_unique_public_addresses()
         self.src_ip_counter, self.dst_ip_counter, self.all_ip_counter = self.count_public_ip_addresses()
-        self.certificates = self.extract_certificates()
-        self.ja3_digests = self.get_ja3_digests()
+        # self.certificates = self.extract_certificates()
+        # self.ja3_digests = self.get_ja3_digests()
 
         self.statistics = self.get_statistics()
         self.extracted_data = self.combine_extracted_data()
@@ -445,7 +445,7 @@ class PacketParser:
         statistics["number_of_unique_public_IP_addresses"] = len(self.combined_unique_ip_list)
         statistics["number_of_HTTP_sessions"] = len(self.http_sessions)
         statistics["number_of_extracted_URLs"] = len(self.unique_urls)
-        statistics["number_of_extracted_TLS_certificates"] = len(self.certificates)
+        # statistics["number_of_extracted_TLS_certificates"] = len(self.certificates)
 
         return statistics
 
@@ -530,10 +530,10 @@ class PacketParser:
         extracted_data['http_sessions'] = self.http_sessions
 
         # extracted data from TLS certificates
-        extracted_data['tls_certificates'] = self.certificates
+        # extracted_data['tls_certificates'] = self.certificates
 
         # generated ja3 fingerprint
-        extracted_data['ja3_fingerprints'] = self.ja3_digests
+        # extracted_data['ja3_fingerprints'] = self.ja3_digests
 
         return extracted_data
 

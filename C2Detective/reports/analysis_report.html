@@ -170,7 +170,7 @@
     </tr>
     <tr>
         <td>Analysis timestamp</td>
-        <td>2024-04-08 05:48:51</td>
+        <td>2024-04-15 18:18:12</td>
     </tr>
     <tr>
         <td>Capture file SHA256</td>
@@ -184,10 +184,10 @@
         <td>Capture end time</td>
         <td>2011-08-10 13:49:29</td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>Number of external TCP connections</td>
         <td>235622</td>
-    </tr>
+    </tr> -->
     <tr>
         <td>Number of unique domain names</td>
         <td>7215</td>
@@ -196,18 +196,18 @@
         <td>Number of unique public IP addresses</td>
         <td>4241</td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>Number of HTTP sessions</td>
         <td>4254</td>
-    </tr>
-    <tr>
+    </tr> -->
+    <!-- <tr>
         <td>Number of extracted URLs</td>
         <td>399</td>
     </tr>
     <tr>
         <td>Number of extracted TLS certificates</td>
-        <td>116</td>
-    </tr>
+        <td>None</td>
+    </tr> -->
 </table>
 <br>
 <table class="report-table">
@@ -255,7 +255,7 @@
     <h2>Number of detected potential Command and Control (C2) communication indicators:</h2>
     <div
             class="circle orange">
-        3 / 10
+        1 / 10
     </div>
 </div>
 
@@ -290,210 +290,13 @@
 <hr>
 <h2 class="toc-heading">Long connections</h2>
 
-<button class="toggle-button" onclick="toggleContent('long-connections')" style="text-align: right;">[ hide table
-    ]
-</button>
-<div id="long-connections" style="display:block;">
-    <table class="report-table">
-        <tr>
-            <th>Source IP</th>
-            <th>Source Port</th>
-            <th>Destination IP</th>
-            <th>Destination Port</th>
-            <th>Duration</th>
-        </tr>
-        
-        <tr>
-            <td>147.32.84.165</td>
-            <td>1302</td>
-            <td>173.192.170.88</td>
-            <td>80</td>
-            <td>14890</td>
-        </tr>
-        
-        <tr>
-            <td>173.192.170.88</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1302</td>
-            <td>14881</td>
-        </tr>
-        
-        <tr>
-            <td>147.32.84.165</td>
-            <td>1333</td>
-            <td>173.192.170.88</td>
-            <td>80</td>
-            <td>16468</td>
-        </tr>
-        
-        <tr>
-            <td>173.192.170.88</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1333</td>
-            <td>16468</td>
-        </tr>
-        
-        <tr>
-            <td>147.32.84.165</td>
-            <td>1398</td>
-            <td>184.154.132.106</td>
-            <td>9541</td>
-            <td>16303</td>
-        </tr>
-        
-        <tr>
-            <td>184.154.132.106</td>
-            <td>9541</td>
-            <td>147.32.84.165</td>
-            <td>1398</td>
-            <td>16303</td>
-        </tr>
-        
-        <tr>
-            <td>147.32.84.165</td>
-            <td>2146</td>
-            <td>212.117.174.7</td>
-            <td>4506</td>
-            <td>14740</td>
-        </tr>
-        
-        <tr>
-            <td>147.32.84.165</td>
-            <td>2343</td>
-            <td>213.246.53.125</td>
-            <td>5296</td>
-            <td>15400</td>
-        </tr>
-        
-        <tr>
-            <td>213.246.53.125</td>
-            <td>5296</td>
-            <td>147.32.84.165</td>
-            <td>2343</td>
-            <td>15424</td>
-        </tr>
-        
-    </table>
-</div>
+<p class="not-detected">NOT DETECTED</p>
 
 
 <hr>
 <h2 class="toc-heading">Unusual big HTTP message body size</h2>
 
-<button class="toggle-button" onclick="toggleContent('big-body-size')" style="text-align: right;">[ hide content
-    ]
-</button>
-<div id="big-body-size" style="display:block;">
-    <table class="report-table">
-        <thead>
-        <tr>
-            <th colspan="6">Session Information</th>
-            <th colspan="7">HTTP Headers</th>
-        </tr>
-        <tr>
-            <th>Timestamp</th>
-            <th>Source IP</th>
-            <th>Source Port</th>
-            <th>Destination IP</th>
-            <th>Destination Port</th>
-            <th>URL</th>
-
-            <th>Connection</th>
-            <th>User-Agent</th>
-            <th>Content Length</th>
-            <th>Content Type</th>
-            <th>Server</th>
-            <th>HTTP Version</th>
-            <th>Status Code</th>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <tr>
-            <td>2011-08-10 09:07:17</td>
-            <td>195.88.191.59</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1060</td>
-            <td>nocomcom.com/bl/chooseee.exe?t=0.8925135</td>
-            <td>close</td>
-            <td>None</td>
-            <td>230912</td>
-            <td>application/octet-stream</td>
-            <td>nginx</td>
-            <td>HTTP/1.1</td>
-            <td>200</td>
-        </tr>
-        
-        <tr>
-            <td>2011-08-10 09:07:20</td>
-            <td>195.88.191.59</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1060</td>
-            <td>nocomcom.com/bl/chooseee.exe?t=0.8925135</td>
-            <td>close</td>
-            <td>None</td>
-            <td>230912</td>
-            <td>application/octet-stream</td>
-            <td>nginx</td>
-            <td>HTTP/1.1</td>
-            <td>200</td>
-        </tr>
-        
-        <tr>
-            <td>2011-08-10 09:08:37</td>
-            <td>195.88.191.59</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1270</td>
-            <td>nocomcom.com/bl/client.exe?t=0.9562799</td>
-            <td>close</td>
-            <td>None</td>
-            <td>93696</td>
-            <td>application/octet-stream</td>
-            <td>nginx</td>
-            <td>HTTP/1.1</td>
-            <td>200</td>
-        </tr>
-        
-        <tr>
-            <td>2011-08-10 09:09:00</td>
-            <td>195.88.191.59</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>1283</td>
-            <td>nocomcom.com/sv/fjuivgfhurew.exe?t=0.3069879</td>
-            <td>close</td>
-            <td>None</td>
-            <td>93184</td>
-            <td>application/octet-stream</td>
-            <td>nginx</td>
-            <td>HTTP/1.1</td>
-            <td>200</td>
-        </tr>
-        
-        <tr>
-            <td>2011-08-10 13:17:02</td>
-            <td>195.113.232.82</td>
-            <td>80</td>
-            <td>147.32.84.165</td>
-            <td>2082</td>
-            <td>cdn.ad4game.com/e7f490f540f2ecbdee2d25826380598a.swf</td>
-            <td>keep-alive</td>
-            <td>None</td>
-            <td>56773</td>
-            <td>application/x-shockwave-flash</td>
-            <td>nginx/1.0.0</td>
-            <td>HTTP/1.1</td>
-            <td>200</td>
-        </tr>
-        
-        </tbody>
-    </table>
-</div>
+<p class="not-detected">NOT DETECTED</p>
 
 
 <hr>
@@ -542,7 +345,7 @@
 
 <hr>
 <div style="text-align: right;">
-    <p>Generated on 2024-04-08 05:52:12</p>
+    <p>Generated on 2024-04-15 18:21:32</p>
 </div>
 
 <script>

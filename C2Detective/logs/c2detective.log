@@ -480,3 +480,264 @@
 1712555532.405317; 2024-04-08 05:52:12,405; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
 1712555532.406044; 2024-04-08 05:52:12,406; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
 1712555532.493832; 2024-04-08 05:52:12,493; INFO; root; All done. Exiting program
+1713199877.188400; 2024-04-15 16:51:17,188; INFO; root; Loading configuration file 'config/config.yml'
+1713199877.194432; 2024-04-15 16:51:17,194; INFO; root; Verifying required directory structure
+1713199877.194718; 2024-04-15 16:51:17,194; ERROR; root; Provided file 'pcaps/replayAttacks.pcap' does not exist
+1713199912.651009; 2024-04-15 16:51:52,651; INFO; root; Loading configuration file 'config/config.yml'
+1713199912.656173; 2024-04-15 16:51:52,656; INFO; root; Verifying required directory structure
+1713199912.656637; 2024-04-15 16:51:52,656; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713199934.215039; 2024-04-15 16:52:14,215; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 21.56s
+1713199934.650812; 2024-04-15 16:52:14,650; INFO; src.packet_parser; Packets grouped into connections in 0.44s
+1713199934.651181; 2024-04-15 16:52:14,651; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713199934.651379; 2024-04-15 16:52:14,651; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713199934.651567; 2024-04-15 16:52:14,651; INFO; src.packet_parser; Extracting unique connections
+1713199934.651753; 2024-04-15 16:52:14,651; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713199934.651929; 2024-04-15 16:52:14,651; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713199934.652111; 2024-04-15 16:52:14,652; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713199934.652290; 2024-04-15 16:52:14,652; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713199940.970026; 2024-04-15 16:52:20,970; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713199946.048445; 2024-04-15 16:52:26,048; INFO; src.packet_parser; Preparing extracted data for output
+1713199946.048749; 2024-04-15 16:52:26,048; INFO; root; Detection engine configuration
+1713199946.048933; 2024-04-15 16:52:26,048; INFO; root; Loading whitelisted domain names
+1713199946.049126; 2024-04-15 16:52:26,049; INFO; root; Loading known C2 values in TLS certificates
+1713199946.049367; 2024-04-15 16:52:26,049; INFO; root; Looking for connections with excessive frequency
+1713199946.049546; 2024-04-15 16:52:26,049; INFO; root; Connections with excessive frequency not detected
+1713199946.049722; 2024-04-15 16:52:26,049; INFO; root; Looking for connections with long duration
+1713199946.049897; 2024-04-15 16:52:26,049; INFO; root; Connections with long duration not detected
+1713199946.050098; 2024-04-15 16:52:26,050; INFO; root; Looking for unusual big HTTP message body size
+1713199946.050273; 2024-04-15 16:52:26,050; INFO; root; Unusual big HTTP message body size not detected
+1713199946.050458; 2024-04-15 16:52:26,050; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1713199946.050637; 2024-04-15 16:52:26,050; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1713199946.050818; 2024-04-15 16:52:26,050; INFO; root; Looking for indicators of DNS Tunneling technique
+1713199946.057284; 2024-04-15 16:52:26,057; DEBUG; filelock; Attempting to acquire lock 140572965136432 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713199946.057760; 2024-04-15 16:52:26,057; DEBUG; filelock; Lock 140572965136432 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713199946.059405; 2024-04-15 16:52:26,059; DEBUG; filelock; Attempting to release lock 140572965136432 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713199946.059492; 2024-04-15 16:52:26,059; DEBUG; filelock; Lock 140572965136432 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713199946.087750; 2024-04-15 16:52:26,087; INFO; root; DNS Tunneling technique not detected
+1713199946.087981; 2024-04-15 16:52:26,087; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713199946.088210; 2024-04-15 16:52:26,088; INFO; root; Command & Control communication indicators not detected
+1713199946.088550; 2024-04-15 16:52:26,088; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713199946.089010; 2024-04-15 16:52:26,089; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713199946.161511; 2024-04-15 16:52:26,161; INFO; root; All done. Exiting program
+1713200754.025764; 2024-04-15 17:05:54,025; INFO; root; Loading configuration file 'config/config.yml'
+1713200754.031985; 2024-04-15 17:05:54,031; INFO; root; Verifying required directory structure
+1713200754.032317; 2024-04-15 17:05:54,032; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713200775.842349; 2024-04-15 17:06:15,842; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 21.81s
+1713200776.204087; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Packets grouped into connections in 0.36s
+1713200776.204283; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713200776.204397; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713200776.204484; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting unique connections
+1713200776.204562; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713200776.204642; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713200776.204720; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713200776.204797; 2024-04-15 17:06:16,204; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713200782.209490; 2024-04-15 17:06:22,209; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713200785.336213; 2024-04-15 17:06:25,336; INFO; src.packet_parser; Preparing extracted data for output
+1713200785.336526; 2024-04-15 17:06:25,336; INFO; root; Detection engine configuration
+1713200785.336681; 2024-04-15 17:06:25,336; INFO; root; Loading whitelisted domain names
+1713200785.336863; 2024-04-15 17:06:25,336; INFO; root; Loading known C2 values in TLS certificates
+1713200785.337054; 2024-04-15 17:06:25,337; INFO; root; Looking for connections with excessive frequency
+1713200785.337164; 2024-04-15 17:06:25,337; INFO; root; Connections with excessive frequency not detected
+1713200785.337270; 2024-04-15 17:06:25,337; INFO; root; Looking for connections with long duration
+1713200785.337378; 2024-04-15 17:06:25,337; INFO; root; Connections with long duration not detected
+1713200785.337476; 2024-04-15 17:06:25,337; INFO; root; Looking for unusual big HTTP message body size
+1713200785.337593; 2024-04-15 17:06:25,337; INFO; root; Unusual big HTTP message body size not detected
+1713200785.337694; 2024-04-15 17:06:25,337; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1713200785.337802; 2024-04-15 17:06:25,337; INFO; root; Known malicious values in extracted data from TLS certificates not detected
+1713200785.337909; 2024-04-15 17:06:25,337; INFO; root; Looking for indicators of DNS Tunneling technique
+1713200785.340291; 2024-04-15 17:06:25,340; DEBUG; filelock; Attempting to acquire lock 139842916852896 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713200785.340667; 2024-04-15 17:06:25,340; DEBUG; filelock; Lock 139842916852896 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713200785.341856; 2024-04-15 17:06:25,341; DEBUG; filelock; Attempting to release lock 139842916852896 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713200785.341937; 2024-04-15 17:06:25,341; DEBUG; filelock; Lock 139842916852896 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713200785.372872; 2024-04-15 17:06:25,372; INFO; root; DNS Tunneling technique not detected
+1713200785.373032; 2024-04-15 17:06:25,373; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713200785.373159; 2024-04-15 17:06:25,373; INFO; root; Command & Control communication indicators not detected
+1713200785.373358; 2024-04-15 17:06:25,373; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713200785.373842; 2024-04-15 17:06:25,373; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713200785.439651; 2024-04-15 17:06:25,439; INFO; root; All done. Exiting program
+1713201261.776301; 2024-04-15 17:14:21,776; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201297.760243; 2024-04-15 17:14:57,760; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201342.021832; 2024-04-15 17:15:42,021; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201390.530068; 2024-04-15 17:16:30,530; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201436.087521; 2024-04-15 17:17:16,087; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201512.051404; 2024-04-15 17:18:32,051; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201544.814713; 2024-04-15 17:19:04,814; ERROR; root; Provided file 'config/config.yml' does not exist
+1713201705.002156; 2024-04-15 17:21:45,002; INFO; root; Loading configuration file 'config/config.yml'
+1713201705.018655; 2024-04-15 17:21:45,018; INFO; root; Verifying required directory structure
+1713201705.019201; 2024-04-15 17:21:45,019; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713201788.935451; 2024-04-15 17:23:08,935; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 44.79s
+1713201834.583539; 2024-04-15 17:23:54,583; INFO; src.packet_parser; Packets grouped into connections in 1.22s
+1713201845.072966; 2024-04-15 17:24:05,072; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713201845.073723; 2024-04-15 17:24:05,073; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713201845.074074; 2024-04-15 17:24:05,074; INFO; src.packet_parser; Extracting unique connections
+1713201845.074347; 2024-04-15 17:24:05,074; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713201845.074849; 2024-04-15 17:24:05,074; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713201845.075032; 2024-04-15 17:24:05,075; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713201845.075187; 2024-04-15 17:24:05,075; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713201987.385901; 2024-04-15 17:26:27,385; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713202048.739231; 2024-04-15 17:27:28,739; INFO; root; Loading configuration file 'config/config.yml'
+1713202048.766850; 2024-04-15 17:27:28,766; INFO; root; Verifying required directory structure
+1713202048.767866; 2024-04-15 17:27:28,767; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713202099.086786; 2024-04-15 17:28:19,086; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 44.92s
+1713202109.907714; 2024-04-15 17:28:29,907; INFO; src.packet_parser; Packets grouped into connections in 1.18s
+1713202111.674096; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713202111.674339; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713202111.674490; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Extracting unique connections
+1713202111.674633; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713202111.674785; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713202111.674928; 2024-04-15 17:28:31,674; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713202111.675075; 2024-04-15 17:28:31,675; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713202138.332038; 2024-04-15 17:28:58,332; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713202145.117282; 2024-04-15 17:29:05,117; INFO; src.packet_parser; Preparing extracted data for output
+1713202185.072490; 2024-04-15 17:29:45,072; INFO; root; Loading configuration file 'config/config.yml'
+1713202185.105665; 2024-04-15 17:29:45,105; INFO; root; Verifying required directory structure
+1713202185.106675; 2024-04-15 17:29:45,106; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713202273.810077; 2024-04-15 17:31:13,810; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 45.00s
+1713202291.514959; 2024-04-15 17:31:31,514; INFO; src.packet_parser; Packets grouped into connections in 1.05s
+1713202296.255302; 2024-04-15 17:31:36,255; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713202296.255711; 2024-04-15 17:31:36,255; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713202296.255958; 2024-04-15 17:31:36,255; INFO; src.packet_parser; Extracting unique connections
+1713202296.256193; 2024-04-15 17:31:36,256; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713202296.256636; 2024-04-15 17:31:36,256; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713202296.256990; 2024-04-15 17:31:36,256; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713202296.257284; 2024-04-15 17:31:36,257; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713202315.447849; 2024-04-15 17:31:55,447; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713202319.375706; 2024-04-15 17:31:59,375; INFO; src.packet_parser; Preparing extracted data for output
+1713202322.711977; 2024-04-15 17:32:02,711; INFO; root; Detection engine configuration
+1713202322.712455; 2024-04-15 17:32:02,712; INFO; root; Loading whitelisted domain names
+1713202322.712765; 2024-04-15 17:32:02,712; INFO; root; Loading known C2 values in TLS certificates
+1713202322.713735; 2024-04-15 17:32:02,713; INFO; root; Looking for connections with excessive frequency
+1713202322.713892; 2024-04-15 17:32:02,713; INFO; root; Connections with excessive frequency not detected
+1713202322.714100; 2024-04-15 17:32:02,714; INFO; root; Looking for connections with long duration
+1713202322.714253; 2024-04-15 17:32:02,714; INFO; root; Connections with long duration not detected
+1713202322.714451; 2024-04-15 17:32:02,714; INFO; root; Looking for unusual big HTTP message body size
+1713202322.714606; 2024-04-15 17:32:02,714; INFO; root; Unusual big HTTP message body size not detected
+1713202322.714809; 2024-04-15 17:32:02,714; INFO; root; Looking for known malicious values in extracted data from TLS certificates
+1713202629.286275; 2024-04-15 17:37:09,286; INFO; root; Loading configuration file 'config/config.yml'
+1713202629.302514; 2024-04-15 17:37:09,302; INFO; root; Verifying required directory structure
+1713202629.303142; 2024-04-15 17:37:09,303; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713202678.686930; 2024-04-15 17:37:58,686; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 44.40s
+1713202684.088627; 2024-04-15 17:38:04,088; INFO; src.packet_parser; Packets grouped into connections in 1.11s
+1713202688.431097; 2024-04-15 17:38:08,431; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713202688.431718; 2024-04-15 17:38:08,431; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713202688.431978; 2024-04-15 17:38:08,431; INFO; src.packet_parser; Extracting unique connections
+1713202688.432127; 2024-04-15 17:38:08,432; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713202688.432282; 2024-04-15 17:38:08,432; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713202688.432456; 2024-04-15 17:38:08,432; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713202688.432607; 2024-04-15 17:38:08,432; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713202721.073319; 2024-04-15 17:38:41,073; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713202724.425463; 2024-04-15 17:38:44,425; INFO; src.packet_parser; Preparing extracted data for output
+1713202734.876290; 2024-04-15 17:38:54,876; INFO; root; Detection engine configuration
+1713202734.876767; 2024-04-15 17:38:54,876; INFO; root; Loading whitelisted domain names
+1713202734.877209; 2024-04-15 17:38:54,877; INFO; root; Loading known C2 values in TLS certificates
+1713202734.878137; 2024-04-15 17:38:54,878; INFO; root; Looking for connections with excessive frequency
+1713202734.878385; 2024-04-15 17:38:54,878; INFO; root; Connections with excessive frequency not detected
+1713202734.878609; 2024-04-15 17:38:54,878; INFO; root; Looking for connections with long duration
+1713202734.878748; 2024-04-15 17:38:54,878; INFO; root; Connections with long duration not detected
+1713202734.878941; 2024-04-15 17:38:54,878; INFO; root; Looking for unusual big HTTP message body size
+1713202734.879090; 2024-04-15 17:38:54,879; INFO; root; Unusual big HTTP message body size not detected
+1713202734.879286; 2024-04-15 17:38:54,879; INFO; root; Looking for indicators of DNS Tunneling technique
+1713202734.882533; 2024-04-15 17:38:54,882; DEBUG; filelock; Attempting to acquire lock 139960551639264 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713202734.885244; 2024-04-15 17:38:54,885; DEBUG; filelock; Lock 139960551639264 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713202734.898153; 2024-04-15 17:38:54,898; DEBUG; filelock; Attempting to release lock 139960551639264 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713202734.898339; 2024-04-15 17:38:54,898; DEBUG; filelock; Lock 139960551639264 released on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713202734.961689; 2024-04-15 17:38:54,961; INFO; root; DNS Tunneling technique not detected
+1713202734.961951; 2024-04-15 17:38:54,961; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713202734.962189; 2024-04-15 17:38:54,962; INFO; root; Command & Control communication indicators not detected
+1713202734.962612; 2024-04-15 17:38:54,962; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713202734.963368; 2024-04-15 17:38:54,963; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713202735.268844; 2024-04-15 17:38:55,268; INFO; root; All done. Exiting program
+1713203300.741642; 2024-04-15 17:48:20,741; INFO; root; Loading configuration file 'config/config.yml'
+1713203300.748536; 2024-04-15 17:48:20,748; INFO; root; Verifying required directory structure
+1713203300.748935; 2024-04-15 17:48:20,748; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713203321.846961; 2024-04-15 17:48:41,846; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 21.10s
+1713203322.229641; 2024-04-15 17:48:42,229; INFO; src.packet_parser; Packets grouped into connections in 0.38s
+1713203322.229840; 2024-04-15 17:48:42,229; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713203322.229950; 2024-04-15 17:48:42,229; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713203322.230034; 2024-04-15 17:48:42,230; INFO; src.packet_parser; Extracting unique connections
+1713203322.230115; 2024-04-15 17:48:42,230; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713203322.230210; 2024-04-15 17:48:42,230; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713203322.230305; 2024-04-15 17:48:42,230; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713203322.230394; 2024-04-15 17:48:42,230; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713203328.277691; 2024-04-15 17:48:48,277; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713203328.298344; 2024-04-15 17:48:48,298; INFO; src.packet_parser; Preparing extracted data for output
+1713203328.298591; 2024-04-15 17:48:48,298; INFO; root; Detection engine configuration
+1713203328.298750; 2024-04-15 17:48:48,298; INFO; root; Loading whitelisted domain names
+1713203328.298933; 2024-04-15 17:48:48,298; INFO; root; Loading known C2 values in TLS certificates
+1713203328.299150; 2024-04-15 17:48:48,299; INFO; root; Looking for connections with excessive frequency
+1713203328.299259; 2024-04-15 17:48:48,299; INFO; root; Connections with excessive frequency not detected
+1713203328.299351; 2024-04-15 17:48:48,299; INFO; root; Looking for indicators of DNS Tunneling technique
+1713203328.299663; 2024-04-15 17:48:48,299; DEBUG; filelock; Attempting to acquire lock 140642464571568 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713203328.299928; 2024-04-15 17:48:48,299; DEBUG; filelock; Lock 140642464571568 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713203328.301821; 2024-04-15 17:48:48,301; DEBUG; filelock; Attempting to release lock 140642464571568 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713203328.301934; 2024-04-15 17:48:48,301; DEBUG; filelock; Lock 140642464571568 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713203328.334813; 2024-04-15 17:48:48,334; INFO; root; DNS Tunneling technique not detected
+1713203328.334990; 2024-04-15 17:48:48,334; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713203328.335109; 2024-04-15 17:48:48,335; INFO; root; Command & Control communication indicators not detected
+1713203328.335411; 2024-04-15 17:48:48,335; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713203328.336032; 2024-04-15 17:48:48,336; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713203328.401315; 2024-04-15 17:48:48,401; INFO; root; All done. Exiting program
+1713204793.130472; 2024-04-15 18:13:13,130; INFO; root; Loading configuration file 'config/config.yml'
+1713204793.135703; 2024-04-15 18:13:13,135; INFO; root; Verifying required directory structure
+1713204793.136012; 2024-04-15 18:13:13,136; ERROR; root; Provided file 'botnet.pcao' does not exist
+1713204796.111541; 2024-04-15 18:13:16,111; INFO; root; Loading configuration file 'config/config.yml'
+1713204796.116583; 2024-04-15 18:13:16,116; INFO; root; Verifying required directory structure
+1713204796.116898; 2024-04-15 18:13:16,116; INFO; root; Loading 'botnet.pcap' input file
+1713204925.483479; 2024-04-15 18:15:25,483; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 129.37s
+1713204953.884301; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Packets grouped into connections in 28.40s
+1713204953.884556; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713204953.884667; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713204953.884768; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Extracting unique connections
+1713204953.884866; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713204953.884974; 2024-04-15 18:15:53,884; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713204953.885068; 2024-04-15 18:15:53,885; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713204953.885161; 2024-04-15 18:15:53,885; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713204983.780212; 2024-04-15 18:16:23,780; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713204984.221493; 2024-04-15 18:16:24,221; INFO; src.packet_parser; Preparing extracted data for output
+1713204984.226537; 2024-04-15 18:16:24,226; INFO; root; Detection engine configuration
+1713204984.226762; 2024-04-15 18:16:24,226; INFO; root; Loading whitelisted domain names
+1713204984.227151; 2024-04-15 18:16:24,227; INFO; root; Loading known C2 values in TLS certificates
+1713204984.227365; 2024-04-15 18:16:24,227; INFO; root; Looking for connections with excessive frequency
+1713204984.230149; 2024-04-15 18:16:24,230; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1713204984.230264; 2024-04-15 18:16:24,230; INFO; root; Listing connections with excessive frequency
+1713204984.230369; 2024-04-15 18:16:24,230; INFO; root; Looking for indicators of DNS Tunneling technique
+1713204984.230676; 2024-04-15 18:16:24,230; DEBUG; filelock; Attempting to acquire lock 140044293926544 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713204984.230920; 2024-04-15 18:16:24,230; DEBUG; filelock; Lock 140044293926544 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713204984.232098; 2024-04-15 18:16:24,232; DEBUG; filelock; Attempting to release lock 140044293926544 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713204984.232253; 2024-04-15 18:16:24,232; DEBUG; filelock; Lock 140044293926544 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713204988.291007; 2024-04-15 18:16:28,291; INFO; root; DNS Tunneling technique not detected
+1713204988.291221; 2024-04-15 18:16:28,291; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713204988.291420; 2024-04-15 18:16:28,291; INFO; root; Command & Control communication indicators detected
+1713204999.932617; 2024-04-15 18:16:39,932; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713204999.933263; 2024-04-15 18:16:39,933; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713205000.017700; 2024-04-15 18:16:40,017; INFO; root; All done. Exiting program
+1713205092.989967; 2024-04-15 18:18:12,989; INFO; root; Loading configuration file 'config/config.yml'
+1713205092.995049; 2024-04-15 18:18:12,995; INFO; root; Verifying required directory structure
+1713205092.995343; 2024-04-15 18:18:12,995; INFO; root; Loading 'botnet.pcap' input file
+1713205221.115715; 2024-04-15 18:20:21,115; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 128.12s
+1713205249.800045; 2024-04-15 18:20:49,800; INFO; src.packet_parser; Packets grouped into connections in 28.68s
+1713205249.800441; 2024-04-15 18:20:49,800; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713205249.800647; 2024-04-15 18:20:49,800; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713205249.800828; 2024-04-15 18:20:49,800; INFO; src.packet_parser; Extracting unique connections
+1713205249.801020; 2024-04-15 18:20:49,801; INFO; src.packet_parser; Extracting TCP connections and counting their respective frequencies
+1713205249.801208; 2024-04-15 18:20:49,801; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713205249.801380; 2024-04-15 18:20:49,801; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713205249.801553; 2024-04-15 18:20:49,801; INFO; src.packet_parser; Extracting data from HTTP sessions
+1713205280.023509; 2024-04-15 18:21:20,023; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713205280.473812; 2024-04-15 18:21:20,473; INFO; src.packet_parser; Preparing extracted data for output
+1713205280.479698; 2024-04-15 18:21:20,479; INFO; root; Detection engine configuration
+1713205280.479933; 2024-04-15 18:21:20,479; INFO; root; Loading whitelisted domain names
+1713205280.480159; 2024-04-15 18:21:20,480; INFO; root; Loading known C2 values in TLS certificates
+1713205280.480399; 2024-04-15 18:21:20,480; INFO; root; Looking for connections with excessive frequency
+1713205280.483863; 2024-04-15 18:21:20,483; INFO; root; Detected connections with excessive frequency. (detected_connections : [{'src_ip': '147.32.84.165', 'src_port': 2343, 'dst_ip': '213.246.53.125', 'dst_port': 5296, 'frequency': 34986}])
+1713205280.484000; 2024-04-15 18:21:20,483; INFO; root; Listing connections with excessive frequency
+1713205280.484126; 2024-04-15 18:21:20,484; INFO; root; Looking for indicators of DNS Tunneling technique
+1713205280.484502; 2024-04-15 18:21:20,484; DEBUG; filelock; Attempting to acquire lock 140162581932224 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713205280.484805; 2024-04-15 18:21:20,484; DEBUG; filelock; Lock 140162581932224 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713205280.486130; 2024-04-15 18:21:20,486; DEBUG; filelock; Attempting to release lock 140162581932224 on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713205280.486248; 2024-04-15 18:21:20,486; DEBUG; filelock; Lock 140162581932224 released on /home/codespace/.cache/python-tldextract/3.10.13.final__3.10.13__2156e6__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713205284.543501; 2024-04-15 18:21:24,543; INFO; root; DNS Tunneling technique not detected
+1713205284.543951; 2024-04-15 18:21:24,543; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713205284.544244; 2024-04-15 18:21:24,544; INFO; root; Command & Control communication indicators detected
+1713205292.771566; 2024-04-15 18:21:32,771; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713205292.772550; 2024-04-15 18:21:32,772; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
