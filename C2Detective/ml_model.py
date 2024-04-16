@@ -47,7 +47,7 @@ print (len(list(string.printable.strip())))
 
 def init(df,param):
     model = DNSExfiltration(98)
-    model.load_state_dict(torch.load('/workspaces/codespaces-blank/C2Detective/detect_dns_data_exfiltration_using_pretrained_model_in_dsdl.pt',map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load('./detect_dns_data_exfiltration_using_pretrained_model_in_dsdl.pt',map_location=torch.device('cpu')))
     model = model.to('cpu')
     model.eval()
     return model
@@ -170,10 +170,13 @@ def apply(model,df,param):
 # load model from name in expected convention "<algo_name>_<model_name>"
 def load(name):
     model = DNSExfiltration(98)
-    model.load_state_dict(torch.load('/workspaces/codespaces-blank/C2Detective/detect_dns_data_exfiltration_using_pretrained_model_in_dsdl.pt',map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load('./detect_dns_data_exfiltration_using_pretrained_model_in_dsdl.pt',map_location=torch.device('cpu')))
     model = model.to('cpu')
     model.eval()
     return model
+def extract_zeek_data(input_file):
+    print(input_file)
+    
 
 def extract_pcap_data(pcap_file):
     # Run tshark command to extract required fields

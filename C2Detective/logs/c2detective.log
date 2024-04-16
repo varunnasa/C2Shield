@@ -15217,3 +15217,78 @@
 1713262519.384147; 2024-04-16 10:15:19,384; INFO; root; Loading whitelisted domain names
 1713262519.384341; 2024-04-16 10:15:19,384; INFO; root; Looking for connections with excessive frequency
 1713262519.384444; 2024-04-16 10:15:19,384; INFO; root; Connections with excessive frequency not detected
+1713267236.130340; 2024-04-16 11:33:56,130; INFO; root; Loading configuration file 'config/config.yml'
+1713267236.135914; 2024-04-16 11:33:56,135; INFO; root; Verifying required directory structure
+1713267236.136233; 2024-04-16 11:33:56,136; ERROR; root; Provided file 'pcaps/replayAttacks.py' does not exist
+1713267247.810791; 2024-04-16 11:34:07,810; INFO; root; Loading configuration file 'config/config.yml'
+1713267247.815725; 2024-04-16 11:34:07,815; INFO; root; Verifying required directory structure
+1713267247.816012; 2024-04-16 11:34:07,816; INFO; root; Loading 'pcaps/replayAttacks.pcap' input file
+1713267268.567606; 2024-04-16 11:34:28,567; INFO; src.packet_parser; Packet capture '{self.input_file}' loaded in 20.75s
+1713267268.954201; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Packets grouped into connections in 0.39s
+1713267268.954393; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713267268.954485; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713267268.954561; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Extracting unique connections
+1713267268.954633; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713267268.954716; 2024-04-16 11:34:28,954; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713267274.632620; 2024-04-16 11:34:34,632; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713267274.653701; 2024-04-16 11:34:34,653; INFO; src.packet_parser; Preparing extracted data for output
+1713267274.653945; 2024-04-16 11:34:34,653; INFO; root; Detection engine configuration
+1713267274.654096; 2024-04-16 11:34:34,654; INFO; root; Loading whitelisted domain names
+1713267274.654321; 2024-04-16 11:34:34,654; INFO; root; Looking for connections with excessive frequency
+1713267274.654441; 2024-04-16 11:34:34,654; INFO; root; Connections with excessive frequency not detected
+1713267276.520403; 2024-04-16 11:34:36,520; INFO; src.detection_engine; File:pcaps/replayAttacks.pcap , DataFrame:
+            src                     query  rank  pred_is_dns_data_exfiltration_proba  pred_is_dns_data_exfiltration
+   192.168.0.20      0.0.0.0.in-addr.arpa   1.0                         9.278074e-14                            0.0
+   192.168.0.20  1.0.168.192.in-addr.arpa   1.0                         3.800123e-11                            0.0
+   192.168.0.20 11.0.168.192.in-addr.arpa   1.0                         1.231378e-14                            0.0
+   192.168.0.20 17.0.168.192.in-addr.arpa   1.0                         1.377390e-12                            0.0
+   192.168.0.20 20.0.168.192.in-addr.arpa   1.0                         9.721267e-09                            0.0
+   192.168.0.20 21.0.168.192.in-addr.arpa   1.0                         1.231378e-14                            0.0
+   192.168.0.20  3.0.168.192.in-addr.arpa   1.0                         4.877182e-12                            0.0
+   192.168.0.20 33.0.168.192.in-addr.arpa   1.0                         2.218190e-12                            0.0
+   192.168.0.20 36.0.168.192.in-addr.arpa   1.0                         9.106924e-13                            0.0
+   192.168.0.20  4.0.168.192.in-addr.arpa   1.0                         1.377390e-12                            0.0
+   192.168.0.20  5.0.168.192.in-addr.arpa   1.0                         1.053542e-13                            0.0
+   192.168.0.20  6.0.168.192.in-addr.arpa   1.0                         1.468049e-11                            0.0
+   192.168.0.20  9.0.168.192.in-addr.arpa   1.0                         8.254669e-11                            0.0
+194.177.210.210      0.0.0.0.in-addr.arpa   1.0                         9.106924e-13                            0.0
+194.177.210.210  1.0.168.192.in-addr.arpa   1.0                         8.254669e-11                            0.0
+194.177.210.210 11.0.168.192.in-addr.arpa   1.0                         2.218190e-12                            0.0
+194.177.210.210 17.0.168.192.in-addr.arpa   1.0                         1.468049e-11                            0.0
+194.177.210.210 20.0.168.192.in-addr.arpa   1.0                         1.702471e-13                            0.0
+194.177.210.210 21.0.168.192.in-addr.arpa   1.0                         3.800123e-11                            0.0
+194.177.210.210  3.0.168.192.in-addr.arpa   1.0                         1.702471e-13                            0.0
+194.177.210.210 33.0.168.192.in-addr.arpa   1.0                         9.721268e-09                            0.0
+194.177.210.210 36.0.168.192.in-addr.arpa   1.0                         4.877182e-12                            0.0
+194.177.210.210  4.0.168.192.in-addr.arpa   1.0                         7.216541e-11                            0.0
+194.177.210.210  5.0.168.192.in-addr.arpa   1.0                         9.278074e-14                            0.0
+194.177.210.210  6.0.168.192.in-addr.arpa   1.0                         7.216541e-11                            0.0
+194.177.210.210  9.0.168.192.in-addr.arpa   1.0                         1.053542e-13                            0.0
+1713267276.521075; 2024-04-16 11:34:36,521; INFO; root; Looking for indicators of DNS Tunneling technique
+1713267276.521429; 2024-04-16 11:34:36,521; DEBUG; filelock; Attempting to acquire lock 139882444618144 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713267276.521677; 2024-04-16 11:34:36,521; DEBUG; filelock; Lock 139882444618144 acquired on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713267276.523175; 2024-04-16 11:34:36,523; DEBUG; filelock; Attempting to release lock 139882444618144 on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713267276.523278; 2024-04-16 11:34:36,523; DEBUG; filelock; Lock 139882444618144 released on /home/codespace/.cache/python-tldextract/3.10.13.final__current__6d51f3__tldextract-3.5.0/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+1713267276.564262; 2024-04-16 11:34:36,564; INFO; root; DNS Tunneling technique not detected
+1713267276.564544; 2024-04-16 11:34:36,564; INFO; src.detection_engine; Preparing detected IoCs for writing to the output file
+1713267276.565051; 2024-04-16 11:34:36,565; INFO; root; Command & Control communication indicators not detected
+1713267276.565537; 2024-04-16 11:34:36,565; INFO; src.detection_reporter; Writing detected IoCs 'reports/detected_iocs.json'
+1713267276.566309; 2024-04-16 11:34:36,566; INFO; src.detection_reporter; Creating an HTML analysis report 'reports/analysis_report.html'...
+1713267276.658366; 2024-04-16 11:34:36,658; INFO; src.detection_reporter; Writing extracted data to 'dataframe_log.log'
+1713267276.658753; 2024-04-16 11:34:36,658; INFO; root; All done. Exiting program
+1713293193.285159; 2024-04-16 18:46:33,285; INFO; root; Loading configuration file 'config/config.yml'
+1713293193.298175; 2024-04-16 18:46:33,298; INFO; root; Verifying required directory structure
+1713293193.298549; 2024-04-16 18:46:33,298; INFO; root; Loading 'pcaps/dns.log' input file
+1713293195.485610; 2024-04-16 18:46:35,485; INFO; src.packet_parser; DNS log loaded from 'pcaps/dns.log' in 2.19s
+1713293195.486033; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Packets grouped into connections in 0.00s
+1713293195.486160; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Extracting start and end timestamps from the provided packet capture
+1713293195.486298; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Extracting public source and destination IP addresses
+1713293195.486402; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Extracting unique connections
+1713293195.486504; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Filtering and storing with DNS layer
+1713293195.486599; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Extracting domain names from DNS queries
+1713293195.486785; 2024-04-16 18:46:35,486; INFO; src.packet_parser; Counting the public source and destination IP addresses
+1713293195.499883; 2024-04-16 18:46:35,499; INFO; src.packet_parser; Preparing extracted data for output
+1713293195.500080; 2024-04-16 18:46:35,500; INFO; root; Detection engine configuration
+1713293195.500227; 2024-04-16 18:46:35,500; INFO; root; Loading whitelisted domain names
+1713293195.503565; 2024-04-16 18:46:35,503; INFO; root; Looking for connections with excessive frequency
+1713293195.503680; 2024-04-16 18:46:35,503; INFO; root; Connections with excessive frequency not detected

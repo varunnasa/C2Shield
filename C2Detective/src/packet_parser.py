@@ -41,7 +41,7 @@ class PacketParser:
         self.packets = self.get_packet_list()  # creates a list in memory
 
         self.connections = self.get_connections()
-        self.start_time, self.end_time, self.public_src_ip_list, self.public_dst_ip_list, self.public_ip_list, self.external_tcp_connections, self.connection_frequency, self.dns_packets, self.domain_names, self.http_sessions, self.http_payloads, self.unique_urls = self.extract_packet_data()
+        self.start_time, self.end_time, self.public_src_ip_list, self.public_dst_ip_list, self.public_ip_list, self.external_tcp_connections, self.connection_frequency, self.dns_packets, self.domain_names = self.extract_packet_data()
         self.src_unique_ip_list, self.dst_unique_ip_list, self.combined_unique_ip_list = self.get_unique_public_addresses()
         self.src_ip_counter, self.dst_ip_counter, self.all_ip_counter = self.count_public_ip_addresses()
         # self.certificates = self.extract_certificates()
@@ -56,24 +56,91 @@ class PacketParser:
         if statistics_option:
             self.print_statistics()
 
+    # def get_packet_list(self):
+    #     t_start = perf_counter()
+    #     packets = rdpcap(self.input_file)
+    #     t_stop = perf_counter()
+    #     print(f"[{time.strftime('%H:%M:%S')}] [INFO] Packet capture '{self.input_file}' loaded in " +
+    #           "{:.2f}s".format(t_stop - t_start))
+    #     self.logger.info(
+    #         "Packet capture '{self.input_file}' loaded in " + "{:.2f}s".format(t_stop - t_start))
+    #     return packets
+
+
+        # #################################################################################################
+    def parse_dns_log(self,dns_log_file):
+        dns_packets = []
+        with open(dns_log_file, 'r') as dns_file:
+            for line in dns_file:
+                # Assuming the format of dns.log is: ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	proto	trans_id	query	qclass	qclass_name	qtype	qtype_name	rcode	rcode_name	AA	TC	RD	RA	Z	answers	TTLs	rejected
+                # Modify accordingly if the format is different
+                dns_data = line.split('\t')
+                if len(dns_data) >= 23:
+                    src_ip = dns_data[2]
+                    sport = dns_data[3]
+                    dest_ip = dns_data[4]
+                    dport = dns_data[5]
+                    query = dns_data[9]
+                    qtype = dns_data[13]
+                    # print(":_:_:_:>",src_ip , sport, dest_ip, dport, query, qtype)
+                    if src_ip == 'uid' or src_ip == "string":
+                        continue
+                    # _time = float(dns_data[0])
+                    try:
+                        # Attempt to create the DNS packet
+                        dns_packet = IP(src=src_ip, dst=dest_ip) / UDP(sport=sport, dport=dport) / DNS(rd=1, qd=DNSQR(qname=query, qtype=qtype))
+                        dns_packets.append(dns_packet)
+                    except Exception as e:
+                        # print(f"Error occurred while constructing DNS packet: {e}")
+                        continue
+                    # print("-->",dns_packets)
+        return dns_packets
+
     def get_packet_list(self):
         t_start = perf_counter()
-        packets = rdpcap(self.input_file)
+        packets = self.parse_dns_log(self.input_file)
         t_stop = perf_counter()
-        print(f"[{time.strftime('%H:%M:%S')}] [INFO] Packet capture '{self.input_file}' loaded in " +
-              "{:.2f}s".format(t_stop - t_start))
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] [INFO] DNS log loaded from '{self.input_file}' in " +
+            "{:.2f}s".format(t_stop - t_start))
         self.logger.info(
-            "Packet capture '{self.input_file}' loaded in " + "{:.2f}s".format(t_stop - t_start))
+            f"DNS log loaded from '{self.input_file}' in " + "{:.2f}s".format(t_stop - t_start))
         return packets
-
+        # #################################################################################################
+    # def get_connections(self):
+    #     t_start = perf_counter()
+    #     connections = self.packets.sessions()
+    #     t_stop = perf_counter()
+    #     print(f"[{time.strftime('%H:%M:%S')}] [INFO] Packets grouped into connections in " +
+    #           "{:.2f}s".format(t_stop - t_start))
+    #     self.logger.info(
+    #         "Packets grouped into connections in " + "{:.2f}s".format(t_stop - t_start))
+    #     return connections
     def get_connections(self):
         t_start = perf_counter()
-        connections = self.packets.sessions()
+        connections = {}
+
+        for packet in self.packets:
+            if isinstance(packet, TCP):
+                src_ip = packet.src_ip
+                src_port = packet.src_port
+                dst_ip = packet.dst_ip
+                dst_port = packet.dst_port
+
+                # Key to identify the connection
+                connection_key = (src_ip, src_port, dst_ip, dst_port)
+
+                # Add packet to the connection
+                if connection_key in connections:
+                    connections[connection_key].append(packet)
+                else:
+                    connections[connection_key] = [packet]
+
         t_stop = perf_counter()
-        print(f"[{time.strftime('%H:%M:%S')}] [INFO] Packets grouped into connections in " +
-              "{:.2f}s".format(t_stop - t_start))
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] [INFO] Packets grouped into connections in " +
+            "{:.2f}s".format(t_stop - t_start))
         self.logger.info(
             "Packets grouped into connections in " + "{:.2f}s".format(t_stop - t_start))
+
         return connections
 
     def extract_packet_data(self):
@@ -109,10 +176,6 @@ class PacketParser:
         dns_packets = []
         # store extracted domain names from DNS queries
         domain_names = set()
-        # store data from HTTP sessions
-        http_payloads = []
-        http_sessions = []
-        unique_urls = set()
 
         for packet in self.packets:
 
@@ -168,66 +231,13 @@ class PacketParser:
                     pass
 
             # check if the packet has an HTTP layer (i.e., is an HTTP request or response)
-            if packet.haslayer('HTTPRequest') or packet.haslayer('HTTPResponse'):
-
-                src_ip = packet[IP].src
-                src_port = packet[IP].sport
-                dst_ip = packet[IP].dst
-                dst_port = packet[IP].dport
-                http_payload = packet[TCP].payload
-
-                # get HTTP headers either from request or response 
-                http_headers = packet.getlayer('HTTPRequest').fields if packet.haslayer(
-                    'HTTPRequest') else packet.getlayer('HTTPResponse').fields
-                http_headers = self._convert_dict(http_headers)
-
-                # scapy.layers.http.HTTPRequest : https://scapy.readthedocs.io/en/latest/api/scapy.layers.http.html
-                http_request = packet.getlayer(http.HTTPRequest)
-                if http_request:
-
-                    method = http_request.fields.get('Method')
-                    if method and isinstance(method, bytes):
-                        method = method.decode()  # decode bytes
-
-                    host = http_request.fields.get('Host')
-                    if host and isinstance(host, bytes):
-                        host = host.decode()  # decode bytes
-                        domain_names.add(host)
-
-                    path = http_request.fields.get('Path')
-                    if path and isinstance(path, bytes):
-                        path = path.decode()  # decode bytes
-
-                    if host:
-                        url = f"{host}{path}"
-                        unique_urls.add(url)
-                    else:
-                        url = ""
-
-                session = dict(
-                    timestamp=packet_time,
-                    src_ip=src_ip,
-                    src_port=src_port,
-                    dst_ip=dst_ip,
-                    dst_port=dst_port,
-                    method=method,
-                    url=url,
-                    path=path,
-                    http_headers=http_headers
-                )
-
-                http_sessions.append(session)
-
-                if packet.haslayer('Raw'):
-                    payload = packet['Raw'].load
-                    http_payloads.append(payload)
             # update the end time of capture with each packet
             end_time = packet_time
 
-        unique_urls = list(unique_urls)
+        # unique_urls = list(unique_urls)
         domain_names = list(domain_names)
 
-        return start_time, end_time, public_src_ip_list, public_dst_ip_list, public_ip_list, external_tcp_connections, connection_frequency, dns_packets, domain_names, http_sessions, http_payloads, unique_urls
+        return start_time, end_time, public_src_ip_list, public_dst_ip_list, public_ip_list, external_tcp_connections, connection_frequency, dns_packets, domain_names
 
     def get_unique_public_addresses(self):
         src_unique_ip_list = list(set(self.public_src_ip_list))
@@ -444,7 +454,7 @@ class PacketParser:
         statistics["number_of_unique_domain_names"] = len(self.domain_names)
         statistics["number_of_unique_public_IP_addresses"] = len(self.combined_unique_ip_list)
         # statistics["number_of_HTTP_sessions"] = len(self.http_sessions)
-        statistics["number_of_extracted_URLs"] = len(self.unique_urls)
+        # statistics["number_of_extracted_URLs"] = len(self.unique_urls)
         # statistics["number_of_extracted_TLS_certificates"] = len(self.certificates)
 
         return statistics
@@ -524,7 +534,7 @@ class PacketParser:
         extracted_data['combined_ip_addresses_count'] = combined_ip_addresses_count
 
         # extracted URLs
-        extracted_data['extracted_urls'] = list(self.unique_urls)
+        # extracted_data['extracted_urls'] = list(self.unique_urls)
 
         # extracted HTTP sessions
         # extracted_data['http_sessions'] = self.http_sessions

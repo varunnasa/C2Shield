@@ -21042,4 +21042,76 @@
     "public_dst_ip_addresses_count": {},
     "combined_ip_addresses_count": {},
     "extracted_urls": []
+}2024-04-16 11:34:36 - File:pcaps/replayAttacks.pcap , DataFrame:
+            src                     query  rank  pred_is_dns_data_exfiltration_proba  pred_is_dns_data_exfiltration
+   192.168.0.20      0.0.0.0.in-addr.arpa   1.0                         9.278074e-14                            0.0
+   192.168.0.20  1.0.168.192.in-addr.arpa   1.0                         3.800123e-11                            0.0
+   192.168.0.20 11.0.168.192.in-addr.arpa   1.0                         1.231378e-14                            0.0
+   192.168.0.20 17.0.168.192.in-addr.arpa   1.0                         1.377390e-12                            0.0
+   192.168.0.20 20.0.168.192.in-addr.arpa   1.0                         9.721267e-09                            0.0
+   192.168.0.20 21.0.168.192.in-addr.arpa   1.0                         1.231378e-14                            0.0
+   192.168.0.20  3.0.168.192.in-addr.arpa   1.0                         4.877182e-12                            0.0
+   192.168.0.20 33.0.168.192.in-addr.arpa   1.0                         2.218190e-12                            0.0
+   192.168.0.20 36.0.168.192.in-addr.arpa   1.0                         9.106924e-13                            0.0
+   192.168.0.20  4.0.168.192.in-addr.arpa   1.0                         1.377390e-12                            0.0
+   192.168.0.20  5.0.168.192.in-addr.arpa   1.0                         1.053542e-13                            0.0
+   192.168.0.20  6.0.168.192.in-addr.arpa   1.0                         1.468049e-11                            0.0
+   192.168.0.20  9.0.168.192.in-addr.arpa   1.0                         8.254669e-11                            0.0
+194.177.210.210      0.0.0.0.in-addr.arpa   1.0                         9.106924e-13                            0.0
+194.177.210.210  1.0.168.192.in-addr.arpa   1.0                         8.254669e-11                            0.0
+194.177.210.210 11.0.168.192.in-addr.arpa   1.0                         2.218190e-12                            0.0
+194.177.210.210 17.0.168.192.in-addr.arpa   1.0                         1.468049e-11                            0.0
+194.177.210.210 20.0.168.192.in-addr.arpa   1.0                         1.702471e-13                            0.0
+194.177.210.210 21.0.168.192.in-addr.arpa   1.0                         3.800123e-11                            0.0
+194.177.210.210  3.0.168.192.in-addr.arpa   1.0                         1.702471e-13                            0.0
+194.177.210.210 33.0.168.192.in-addr.arpa   1.0                         9.721268e-09                            0.0
+194.177.210.210 36.0.168.192.in-addr.arpa   1.0                         4.877182e-12                            0.0
+194.177.210.210  4.0.168.192.in-addr.arpa   1.0                         7.216541e-11                            0.0
+194.177.210.210  5.0.168.192.in-addr.arpa   1.0                         9.278074e-14                            0.0
+194.177.210.210  6.0.168.192.in-addr.arpa   1.0                         7.216541e-11                            0.0
+194.177.210.210  9.0.168.192.in-addr.arpa   1.0                         1.053542e-13                            0.0
+2024-04-16 11:34:36 - Preparing detected IoCs for writing to the output file
+
+{
+    "filepath": "pcaps/replayAttacks.pcap",
+    "analysis_timestamp": "2024-04-16 11:34:07",
+    "capture_sha256": "fdb369df1add7d7c3449452f2c2004d05a802a0c26b731281f87cd998a2a59d5",
+    "capture_timestamps": {
+        "start_time": "2021-02-11 18:32:12",
+        "end_time": "2021-02-11 19:02:32"
+    },
+    "number_of_unique_domain_names": 13,
+    "number_of_unique_public_IP_addresses": 1,
+    "number_of_extracted_URLs": 0,
+    "extracted_domains": [
+        "0.0.0.0.in-addr.arpa",
+        "9.0.168.192.in-addr.arpa",
+        "6.0.168.192.in-addr.arpa",
+        "3.0.168.192.in-addr.arpa",
+        "33.0.168.192.in-addr.arpa",
+        "4.0.168.192.in-addr.arpa",
+        "36.0.168.192.in-addr.arpa",
+        "11.0.168.192.in-addr.arpa",
+        "21.0.168.192.in-addr.arpa",
+        "17.0.168.192.in-addr.arpa",
+        "5.0.168.192.in-addr.arpa",
+        "20.0.168.192.in-addr.arpa",
+        "1.0.168.192.in-addr.arpa"
+    ],
+    "public_src_ip_addresses": [
+        "194.177.210.210"
+    ],
+    "public_src_ip_addresses_count": {
+        "194.177.210.210": 27
+    },
+    "public_dst_ip_addresses": [
+        "194.177.210.210"
+    ],
+    "public_dst_ip_addresses_count": {
+        "194.177.210.210": 27
+    },
+    "combined_ip_addresses_count": {
+        "194.177.210.210": 54
+    },
+    "extracted_urls": []
 }

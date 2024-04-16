@@ -1128,7 +1128,7 @@ class DetectionEngine:
         return self.detected_iocs
     def detect_from_ml_model(self,input_file):
         model = ml_model.load("model")
-        df = ml_model.extract_pcap_data(input_file)
+        df = ml_model.extract_zeek_data(input_file)
         recent_df = ml_model.apply(model,df,"")
         print("model executed succesfully")
         recent_df = recent_df.dropna()
