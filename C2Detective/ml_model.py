@@ -74,9 +74,11 @@ def predict(dataloader,model):
 # this method accepts a DNS request and converts into indexes based on printable characters
 def index_chars(x):
     request_chars = {}
+    print("-->",x)
     if x:
       for i in range(len(x)):
-          request_chars[keys.index(x[i])] = request_chars.get(keys.index(x[i]), 0) + 1
+          if x[i].isprintable():
+            request_chars[keys.index(x[i])] = request_chars.get(keys.index(x[i]), 0) + 1
       text_rows.append(request_chars)
     else:
       return

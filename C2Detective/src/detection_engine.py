@@ -1130,7 +1130,29 @@ class DetectionEngine:
         model = ml_model.load("model")
         df = ml_model.extract_pcap_data(input_file)
         recent_df = ml_model.apply(model,df,"")
-        print(recent_df)
+        print("model executed succesfully")
+        recent_df = recent_df.dropna()
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
+
+        # Define the file handler for the log file
+        log_file_path = 'dataframe_log.log'
+        file_handler = logging.FileHandler(log_file_path,mode='a')
+        file_handler.setLevel(logging.INFO)
+
+        # Define the formatter
+        formatter = logging.Formatter('%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+        file_handler.setFormatter(formatter)
+
+        # Add the file handler to the logger
+        logger.addHandler(file_handler)
+
+        # Convert the dataframe to a string and log it
+        # recent_df = recent_df[recent_df["pred_is_dns_data_exfiltration"]!=]
+        df_str = recent_df.to_string(index=False)
+        logger.info(f"File:{input_file} , DataFrame:\n%s", df_str)
+
+        print("DataFrame stored in log file:", log_file_path)
 
     def get_c2_indicators_count(self):
         return self.c2_indicators_count

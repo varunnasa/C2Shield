@@ -95,5 +95,6 @@ class DetectionReporter:
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Writing extracted data to '{log_filename}' file ...")
         self.logger.info(f"Writing extracted data to '{log_filename}'")
 
-        with open(log_filename, "w") as output:
+        with open(log_filename, "a") as output:  # Open the file in append mode
+            output.write("\n")  # Add a newline to separate logs
             output.write(json.dumps(self.extracted_data, indent=4))
