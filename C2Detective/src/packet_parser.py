@@ -72,10 +72,12 @@ class PacketParser:
         dns_packets = []
         with open(dns_log_file, 'r') as dns_file:
             for line in dns_file:
+                # print("LINE HERE______>",line) works here
                 # Assuming the format of dns.log is: ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	proto	trans_id	query	qclass	qclass_name	qtype	qtype_name	rcode	rcode_name	AA	TC	RD	RA	Z	answers	TTLs	rejected
                 # Modify accordingly if the format is different
                 dns_data = line.split('\t')
                 if len(dns_data) >= 23:
+                    # print(dns_data)
                     src_ip = dns_data[2]
                     sport = dns_data[3]
                     dest_ip = dns_data[4]
@@ -88,7 +90,7 @@ class PacketParser:
                     # _time = float(dns_data[0])
                     try:
                         # Attempt to create the DNS packet
-                        dns_packet = IP(src=src_ip, dst=dest_ip) / UDP(sport=sport, dport=dport) / DNS(rd=1, qd=DNSQR(qname=query, qtype=qtype))
+                        dns_packet = IP(src=src_ip, dst=dest_ip) / UDP(sport=int(sport), dport=int(dport)) / DNS(rd=1, qd=DNSQR(qname=query, qtype=qtype))
                         dns_packets.append(dns_packet)
                     except Exception as e:
                         # print(f"Error occurred while constructing DNS packet: {e}")
@@ -99,6 +101,7 @@ class PacketParser:
     def get_packet_list(self):
         t_start = perf_counter()
         packets = self.parse_dns_log(self.input_file)
+        # print("()()()()",packets,self.input_file)
         t_stop = perf_counter()
         print(f"[{datetime.now().strftime('%H:%M:%S')}] [INFO] DNS log loaded from '{self.input_file}' in " +
             "{:.2f}s".format(t_stop - t_start))
@@ -176,7 +179,7 @@ class PacketParser:
         dns_packets = []
         # store extracted domain names from DNS queries
         domain_names = set()
-
+        # print("--_-__-__-__----_---",self.packets)
         for packet in self.packets:
 
             # convert Unix timestamp with microsecond precision

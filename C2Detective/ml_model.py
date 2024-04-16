@@ -74,11 +74,13 @@ def predict(dataloader,model):
 # this method accepts a DNS request and converts into indexes based on printable characters
 def index_chars(x):
     request_chars = {}
-    print("-->",x)
+    # print("-->",x)
     if x:
       for i in range(len(x)):
-          if x[i].isprintable():
+        try:
             request_chars[keys.index(x[i])] = request_chars.get(keys.index(x[i]), 0) + 1
+        except Exception as e:
+            continue
       text_rows.append(request_chars)
     else:
       return
@@ -140,7 +142,7 @@ def prepare_input_df(df):
     recent_df = df.loc[df['rank'] == 1]
 
     # calculate feature by aggregating events
-
+    
     recent_df.apply(lambda x: get_aggregated_features(x,df),axis=1)
     recent_df['size_avg'] = size_avg
     recent_df['entropy_avg'] = entropy_avg
@@ -150,6 +152,8 @@ def prepare_input_df(df):
 # apply model on processed dataframe to predict exfiltration
 def apply(model,df,param):
     df.drop(['_time'], axis=1,inplace=True, errors='ignore')
+    # if recent_df:
+    #     del recent_df
     recent_df = prepare_input_df(df)
     input_df = recent_df.drop(['src' ,'query','rank','request_without_domain','tld'], axis=1)
     recent_df.drop(['request_without_domain','tld','len','entropy','size_avg','entropy_avg'], axis=1, inplace=True)
@@ -174,9 +178,44 @@ def load(name):
     model = model.to('cpu')
     model.eval()
     return model
-def extract_zeek_data(input_file):
-    print(input_file)
-    
+# ############################################################
+def extract_zeek_data(zeek_log_file):
+    # Assuming the format of the Zeek log file
+    # Modify accordingly if the format is different
+    fields_to_extract = ["id.orig_h", "query", "ts"]
+    # 2, 9, 0
+
+    # Read the Zeek log file
+    with open(zeek_log_file, 'r') as zeek_file:
+        lines = zeek_file.readlines()
+
+    # Parse each line to extract required fields
+    data = []
+    for line in lines:
+        # Split the line by tabs
+        fields = line.strip().split('\t')
+        if len(fields)>= 23 and (fields[0]!="#fields" and fields[0]!="#types"):
+            # print(fields[0])
+            # Extract required fields
+            extracted_fields = [fields[2],fields[9],float(fields[0])]
+            data.append(extracted_fields)
+
+    # Create DataFrame from the extracted data
+    df = pd.DataFrame(data, columns=["src", "query", "_time"])
+
+    # Exclude rows where query is None or empty
+    df = df.dropna(subset=['query']).loc[df['query'] != '']
+
+    if not df.empty:
+        # Convert _time to numeric
+        df['_time'] = pd.to_numeric(df['_time'])
+        # Sort DataFrame by src, query, and _time
+        df.sort_values(by=['src', 'query', '_time'], inplace=True)
+        # Add rank column
+        df['rank'] = df.groupby(['src', 'query'])['_time'].rank(method='min')
+
+    return df
+# ############################################################
 
 def extract_pcap_data(pcap_file):
     # Run tshark command to extract required fields

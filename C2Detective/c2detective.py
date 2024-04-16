@@ -341,7 +341,7 @@ def main():
         packet_capture = PacketCapture(analyst_profile.sniffing, output_dir)
         input_file = packet_capture.capture_packets()
 
-    if is_valid_file(input_file, "pcap"):
+    if is_valid_file(input_file, "log"):
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Loading '{input_file}' input file ...")
         logging.info(f"Loading '{input_file}' input file")
         report_extracted_data_option = args.write_extracted
