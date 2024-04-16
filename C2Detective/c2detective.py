@@ -36,7 +36,6 @@ def is_platform_supported():
 
 
 def is_valid_file(filename, filetype):
-    print(os.getcwd())
     if not os.path.exists(filename):
         print(
             f"[{time.strftime('%H:%M:%S')}] [ERROR] Provided file '{filename}' does not exist")
@@ -225,6 +224,8 @@ def init_logger():
 
 
 def main():
+    os.system("clear")
+
     init_logger()
     is_platform_supported()
 
@@ -404,6 +405,7 @@ def main():
     if args.dga:
         detection_engine.detect_dga()
     detection_engine.detect_dns_tunneling()
+    detection_engine.detect_from_ml_model(input_file)
     # detection_engine.detect_tor_traffic()
     # detection_engine.detect_crypto_domains()
 
@@ -454,7 +456,8 @@ def main():
         if args.enrich_iocs:
             detection_reporter.write_enriched_iocs_to_file()
         detection_reporter.create_html_analysis_report()
-        detection_reporter.write_extracted_data_to_file("result")
+        detection_reporter.write_extracted_data_to_file("extracted_data_log")
+
         # detection_reporter.create_pdf_analysis_report()
     else:
         print(

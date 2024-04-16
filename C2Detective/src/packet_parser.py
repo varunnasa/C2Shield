@@ -84,15 +84,15 @@ class PacketParser:
         self.logger.info("Extracting public source and destination IP addresses")
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting unique connections ...")
         self.logger.info("Extracting unique connections")
-        print(
-            f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting TCP connections and counting their respective frequencies ...")
-        self.logger.info("Extracting TCP connections and counting their respective frequencies")
+        # print(
+        #     f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting TCP connections and counting their respective frequencies ...")
+        # self.logger.info("Extracting TCP connections and counting their respective frequencies")
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Filtering and storing packets with DNS layer ...")
         self.logger.info("Filtering and storing with DNS layer")
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting domain names from DNS queries ...")
         self.logger.info("Extracting domain names from DNS queries")
-        print(f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting data from HTTP sessions ...")
-        self.logger.info("Extracting data from HTTP sessions")
+        # print(f"[{time.strftime('%H:%M:%S')}] [INFO] Extracting data from HTTP sessions ...")
+        # self.logger.info("Extracting data from HTTP sessions")
 
         # store packet capture start and end time
         start_time = None
@@ -273,157 +273,157 @@ class PacketParser:
         else:
             return data
 
-    def extract_certificates(self):
-        cmd = f'tshark -nr {self.input_file} -Y "tls.handshake.certificate" -V'
-        output = subprocess.check_output(cmd, shell=True)
-        lines = output.decode().splitlines()
-        # print(lines)
+    # def extract_certificates(self):
+        # cmd = f'tshark -nr {self.input_file} -Y "tls.handshake.certificate" -V'
+        # output = subprocess.check_output(cmd, shell=True)
+        # lines = output.decode().splitlines()
+        # # print(lines)
 
-        certificates = []  # list to store certificates
-        current_cert = {}
-        certificate_flag = ""
-        issuer_fields = {}
-        subject_fields = {}
+        # certificates = []  # list to store certificates
+        # current_cert = {}
+        # certificate_flag = ""
+        # issuer_fields = {}
+        # subject_fields = {}
 
-        for index, line in enumerate(lines):
+        # for index, line in enumerate(lines):
 
-            if line.lstrip(" ").startswith("Source Address"):
-                src_ip = line.lstrip(" ").split(" ")[2]
-                current_cert['src_ip'] = src_ip
+        #     if line.lstrip(" ").startswith("Source Address"):
+        #         src_ip = line.lstrip(" ").split(" ")[2]
+        #         current_cert['src_ip'] = src_ip
 
-            elif line.lstrip(" ").startswith("Destination Address"):
-                dst_ip = line.lstrip(" ").split(" ")[2]
-                current_cert['dst_ip'] = dst_ip
+        #     elif line.lstrip(" ").startswith("Destination Address"):
+        #         dst_ip = line.lstrip(" ").split(" ")[2]
+        #         current_cert['dst_ip'] = dst_ip
 
-            elif line.lstrip(" ").startswith("Source Port"):
-                src_port = line.lstrip(" ").split(" ")[2]
-                current_cert['src_port'] = src_port
+        #     elif line.lstrip(" ").startswith("Source Port"):
+        #         src_port = line.lstrip(" ").split(" ")[2]
+        #         current_cert['src_port'] = src_port
 
-            elif line.lstrip(" ").startswith("Destination Port"):
-                dst_port = line.lstrip(" ").split(" ")[2]
-                current_cert['dst_port'] = dst_port
+        #     elif line.lstrip(" ").startswith("Destination Port"):
+        #         dst_port = line.lstrip(" ").split(" ")[2]
+        #         current_cert['dst_port'] = dst_port
 
-            elif line.lstrip(" ").startswith("serialNumber"):
-                serial_number = line.lstrip(" ").split(" ")[1]
-                current_cert['serialNumber'] = serial_number
+        #     elif line.lstrip(" ").startswith("serialNumber"):
+        #         serial_number = line.lstrip(" ").split(" ")[1]
+        #         current_cert['serialNumber'] = serial_number
 
-            elif line.lstrip(" ").startswith('issuer'):
-                issuer_fields = {}
-                certificate_flag = "issuer"
+        #     elif line.lstrip(" ").startswith('issuer'):
+        #         issuer_fields = {}
+        #         certificate_flag = "issuer"
 
-            elif line.lstrip(" ").startswith("subject"):
-                subject_fields = {}
-                certificate_flag = "subject"
+        #     elif line.lstrip(" ").startswith("subject"):
+        #         subject_fields = {}
+        #         certificate_flag = "subject"
 
-            elif line.lstrip(" ").startswith("rdnSequence"):
-                # certificate_fields = re.findall('\((.*?)\)', line.lstrip(" "))[0].split(",")
-                rdn_sequence_values = re.findall('\((.*?)\)', line.lstrip(" "))
+        #     elif line.lstrip(" ").startswith("rdnSequence"):
+        #         # certificate_fields = re.findall('\((.*?)\)', line.lstrip(" "))[0].split(",")
+        #         rdn_sequence_values = re.findall('\((.*?)\)', line.lstrip(" "))
 
-                if not rdn_sequence_values:
-                    try:
-                        certificate_fields = line.lstrip(" ").split(" ")[3].split(",")
-                    except IndexError:
-                        certificate_fields = []
-                else:
-                    try:
-                        certificate_fields = rdn_sequence_values[0].split(",")
-                    except IndexError:
-                        certificate_fields = []
+        #         if not rdn_sequence_values:
+        #             try:
+        #                 certificate_fields = line.lstrip(" ").split(" ")[3].split(",")
+        #             except IndexError:
+        #                 certificate_fields = []
+        #         else:
+        #             try:
+        #                 certificate_fields = rdn_sequence_values[0].split(",")
+        #             except IndexError:
+        #                 certificate_fields = []
 
-                # print(certificate_fields)
+        #         # print(certificate_fields)
 
-                for entry in certificate_fields:
-                    if "emailAddress" in entry:
-                        email_address = entry.split("emailAddress=")[1].replace(")", "")
-                        # print(emailAddress)
-                        if certificate_flag == "issuer":
-                            issuer_fields['emailAddress'] = email_address
-                        else:
-                            subject_fields['emailAddress'] = email_address
+        #         for entry in certificate_fields:
+        #             if "emailAddress" in entry:
+        #                 email_address = entry.split("emailAddress=")[1].replace(")", "")
+        #                 # print(emailAddress)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['emailAddress'] = email_address
+        #                 else:
+        #                     subject_fields['emailAddress'] = email_address
 
-                    elif "commonName" in entry:
-                        common_name = entry.split("commonName=")[1].replace(")", "")
-                        # print(commonName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['commonName'] = common_name
-                        else:
-                            subject_fields['commonName'] = common_name
+        #             elif "commonName" in entry:
+        #                 common_name = entry.split("commonName=")[1].replace(")", "")
+        #                 # print(commonName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['commonName'] = common_name
+        #                 else:
+        #                     subject_fields['commonName'] = common_name
 
-                    elif "organizationalUnitName" in entry:
-                        organizational_unit_name = entry.split("organizationalUnitName=")[1].replace(")", "")
-                        # print(organizationalUnitName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['organizationalUnitName'] = organizational_unit_name
-                        else:
-                            subject_fields['organizationalUnitName'] = organizational_unit_name
+        #             elif "organizationalUnitName" in entry:
+        #                 organizational_unit_name = entry.split("organizationalUnitName=")[1].replace(")", "")
+        #                 # print(organizationalUnitName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['organizationalUnitName'] = organizational_unit_name
+        #                 else:
+        #                     subject_fields['organizationalUnitName'] = organizational_unit_name
 
-                    elif "organizationName" in entry:
-                        organization_name = entry.split("organizationName=")[1].replace(")", "")
-                        # print(organizationName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['organizationName'] = organization_name
-                        else:
-                            subject_fields['organizationName'] = organization_name
+        #             elif "organizationName" in entry:
+        #                 organization_name = entry.split("organizationName=")[1].replace(")", "")
+        #                 # print(organizationName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['organizationName'] = organization_name
+        #                 else:
+        #                     subject_fields['organizationName'] = organization_name
 
-                    elif "localityName" in entry:
-                        locality_name = entry.split("localityName=")[1].replace(")", "")
-                        # print(localityName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['localityName'] = locality_name
-                        else:
-                            subject_fields['localityName'] = locality_name
+        #             elif "localityName" in entry:
+        #                 locality_name = entry.split("localityName=")[1].replace(")", "")
+        #                 # print(localityName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['localityName'] = locality_name
+        #                 else:
+        #                     subject_fields['localityName'] = locality_name
 
-                    elif "stateOrProvinceName" in entry:
-                        state_or_province_name = entry.split("stateOrProvinceName=")[1].replace(")", "")
-                        # print(stateOrProvinceName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['stateOrProvinceName'] = state_or_province_name
-                        else:
-                            subject_fields['stateOrProvinceName'] = state_or_province_name
+        #             elif "stateOrProvinceName" in entry:
+        #                 state_or_province_name = entry.split("stateOrProvinceName=")[1].replace(")", "")
+        #                 # print(stateOrProvinceName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['stateOrProvinceName'] = state_or_province_name
+        #                 else:
+        #                     subject_fields['stateOrProvinceName'] = state_or_province_name
 
-                    elif "countryName" in entry:
-                        country_name = entry.split("countryName=")[1].replace(")", "")
-                        # print(countryName)
-                        if certificate_flag == "issuer":
-                            issuer_fields['countryName'] = country_name
-                        else:
-                            subject_fields['countryName'] = country_name
+        #             elif "countryName" in entry:
+        #                 country_name = entry.split("countryName=")[1].replace(")", "")
+        #                 # print(countryName)
+        #                 if certificate_flag == "issuer":
+        #                     issuer_fields['countryName'] = country_name
+        #                 else:
+        #                     subject_fields['countryName'] = country_name
 
-                if certificate_flag == "issuer":
-                    # print(subject_fields)
-                    current_cert['issuer'] = issuer_fields
+        #         if certificate_flag == "issuer":
+        #             # print(subject_fields)
+        #             current_cert['issuer'] = issuer_fields
 
-                elif certificate_flag == "subject":
-                    # print(subject_fields)
-                    current_cert['subject'] = subject_fields
+        #         elif certificate_flag == "subject":
+        #             # print(subject_fields)
+        #             current_cert['subject'] = subject_fields
 
-            elif line.startswith("Frame") or index == len(lines) - 1:
-                if current_cert:
-                    certificates.append(current_cert)
-                current_cert = {}
+        #     elif line.startswith("Frame") or index == len(lines) - 1:
+        #         if current_cert:
+        #             certificates.append(current_cert)
+        #         current_cert = {}
 
-        return certificates
+        # return certificates
 
-    def get_ja3_digests(self):
+    # def get_ja3_digests(self):
 
-        ja3_digests = []
-        try:
-            cmd = f'ja3 --json --any_port {self.input_file}'
-            output = subprocess.check_output(cmd, shell=True)
+    #     ja3_digests = []
+    #     try:
+    #         cmd = f'ja3 --json --any_port {self.input_file}'
+    #         output = subprocess.check_output(cmd, shell=True)
 
-            # parse the JSON output
-            ja3_digests = json.loads(output)
+    #         # parse the JSON output
+    #         ja3_digests = json.loads(output)
 
-            # iterate through each dictionary in the list and convert the timestamp value
-            for item in ja3_digests:
-                timestamp = datetime.fromtimestamp(round(item['timestamp'], 6)).strftime('%Y-%m-%d %H:%M:%S')
-                item['timestamp'] = timestamp
+    #         # iterate through each dictionary in the list and convert the timestamp value
+    #         for item in ja3_digests:
+    #             timestamp = datetime.fromtimestamp(round(item['timestamp'], 6)).strftime('%Y-%m-%d %H:%M:%S')
+    #             item['timestamp'] = timestamp
 
-        except Exception as e:
-            print(f"[{time.strftime('%H:%M:%S')}] [ERROR] Error occurred while running the 'ja3' application ({e})")
-            logging.error(f"Error occurred while running the 'ja3' application ({e})")
+    #     except Exception as e:
+    #         print(f"[{time.strftime('%H:%M:%S')}] [ERROR] Error occurred while running the 'ja3' application ({e})")
+    #         logging.error(f"Error occurred while running the 'ja3' application ({e})")
 
-        return ja3_digests
+    #     return ja3_digests
 
     # -------------------------------------------------------------------------------------------
 
@@ -440,10 +440,10 @@ class PacketParser:
 
         statistics["capture_start_time"] = self.start_time
         statistics["capture_end_time"] = self.end_time
-        statistics["number_of_external_tcp_connections"] = len(self.external_tcp_connections)
+        # statistics["number_of_external_tcp_connections"] = len(self.external_tcp_connections)
         statistics["number_of_unique_domain_names"] = len(self.domain_names)
         statistics["number_of_unique_public_IP_addresses"] = len(self.combined_unique_ip_list)
-        statistics["number_of_HTTP_sessions"] = len(self.http_sessions)
+        # statistics["number_of_HTTP_sessions"] = len(self.http_sessions)
         statistics["number_of_extracted_URLs"] = len(self.unique_urls)
         # statistics["number_of_extracted_TLS_certificates"] = len(self.certificates)
 
@@ -454,7 +454,7 @@ class PacketParser:
         print(f">> Packet capture SHA256: {self.statistics.get('capture_sha256')}")
         print(f">> Packet capture stared at: {self.statistics.get('capture_start_time')}")
         print(f">> Packet capture ended at: {self.statistics.get('capture_end_time')}")
-        print(f">> Number of external TCP connections: {self.statistics.get('number_of_external_tcp_connections')}")
+        # print(f">> Number of external TCP connections: {self.statistics.get('number_of_external_tcp_connections')}")
         print(f">> Number of unique domain names: {self.statistics.get('number_of_unique_domain_names')}")
         print(f">> Number of unique public IP addresses: {self.statistics.get('number_of_unique_public_IP_addresses')}")
 
@@ -470,10 +470,10 @@ class PacketParser:
             table.add_row([ip, count])
         print(table)
 
-        print(f">> Number of HTTP sessions: {self.statistics.get('number_of_HTTP_sessions')}")
+        # print(f">> Number of HTTP sessions: {self.statistics.get('number_of_HTTP_sessions')}")
         print(f">> Number of extracted URLs : {self.statistics.get('number_of_extracted_URLs')}")
-        print(
-            f">> Number of extracted TLS certificates : {self.statistics.get('number_of_extracted_TLS_certificates')}")
+        # print(
+        #     f">> Number of extracted TLS certificates : {self.statistics.get('number_of_extracted_TLS_certificates')}")
 
     def combine_extracted_data(self):
         print(f"[{time.strftime('%H:%M:%S')}] [INFO] Preparing extracted data for output ...")
@@ -487,14 +487,14 @@ class PacketParser:
             start_time=self.statistics.get("capture_start_time"),
             end_time=self.statistics.get("capture_end_time")
         )
-        extracted_data['number_of_external_tcp_connections'] = self.statistics.get("number_of_external_tcp_connections")
+        # extracted_data['number_of_external_tcp_connections'] = self.statistics.get("number_of_external_tcp_connections")
         extracted_data['number_of_unique_domain_names'] = self.statistics.get("number_of_unique_domain_names")
         extracted_data['number_of_unique_public_IP_addresses'] = self.statistics.get(
             "number_of_unique_public_IP_addresses")
-        extracted_data['number_of_HTTP_sessions'] = self.statistics.get("number_of_HTTP_sessions")
+        # extracted_data['number_of_HTTP_sessions'] = self.statistics.get("number_of_HTTP_sessions")
         extracted_data['number_of_extracted_URLs'] = self.statistics.get("number_of_extracted_URLs")
-        extracted_data['number_of_extracted_TLS_certificates'] = self.statistics.get(
-            "number_of_extracted_TLS_certificates")
+        # extracted_data['number_of_extracted_TLS_certificates'] = self.statistics.get(
+        #     "number_of_extracted_TLS_certificates")
 
         # domain names from DNS queries
         extracted_data['extracted_domains'] = list(self.domain_names)
@@ -527,9 +527,9 @@ class PacketParser:
         extracted_data['extracted_urls'] = list(self.unique_urls)
 
         # extracted HTTP sessions
-        extracted_data['http_sessions'] = self.http_sessions
+        # extracted_data['http_sessions'] = self.http_sessions
 
-        # extracted data from TLS certificates
+        # # extracted data from TLS certificates
         # extracted_data['tls_certificates'] = self.certificates
 
         # generated ja3 fingerprint

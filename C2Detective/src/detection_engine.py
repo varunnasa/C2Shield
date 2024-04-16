@@ -7,7 +7,7 @@ from ipaddress import ip_address
 import itertools
 import re
 from urllib.parse import urlparse
-
+import ml_model
 
 """
 start_time :                                timestamp when packet capture stared :  string :        %Y-%m-%d %H:%M:%S
@@ -51,15 +51,15 @@ certificates :                              selected TLS certificate fields :   
 #     return crypto_domains
 
 
-def get_c2_tls_certificate_values(c2_tls_certificate_values_path):
-    print(
-        f"[{time.strftime('%H:%M:%S')}] [INFO] Loading known C2 values in TLS certificates ...")
-    logging.info("Loading known C2 values in TLS certificates")
+# def get_c2_tls_certificate_values(c2_tls_certificate_values_path):
+#     print(
+#         f"[{time.strftime('%H:%M:%S')}] [INFO] Loading known C2 values in TLS certificates ...")
+#     logging.info("Loading known C2 values in TLS certificates")
 
-    with open(c2_tls_certificate_values_path, 'r') as tls_values:
-        c2_tls_certificate_values = json.load(tls_values)
+#     with open(c2_tls_certificate_values_path, 'r') as tls_values:
+#         c2_tls_certificate_values = json.load(tls_values)
 
-    return c2_tls_certificate_values
+#     return c2_tls_certificate_values
 
 
 def get_domain_whitelist(domain_whitelist_path):
@@ -86,36 +86,36 @@ def get_domain_whitelist(domain_whitelist_path):
 #     return ja3_rules
 
 
-def print_long_connections(detected_connections):
-    print(
-        f"[{time.strftime('%H:%M:%S')}] [INFO] Listing detected connections with long duration")
-    logging.info(f"Listing detected connections with long duration")
+# def print_long_connections(detected_connections):
+#     print(
+#         f"[{time.strftime('%H:%M:%S')}] [INFO] Listing detected connections with long duration")
+#     logging.info(f"Listing detected connections with long duration")
 
-    for entry in detected_connections:
-        print(
-            f">> {Fore.RED}{entry['src_ip']}:{entry['src_port']} -> {entry['dst_ip']}:{entry['dst_port']}{Fore.RESET} = {entry['duration']} seconds")
-
-
-def print_connections_with_big_http_body_size(detected_connections):
-    print(
-        f"[{time.strftime('%H:%M:%S')}] [INFO] Listing connections with unusual big HTTP message body size")
-    logging.info(
-        f"Listing connections with unusual big HTTP message body size")
-
-    for entry in detected_connections:
-        print(
-            f">> {Fore.RED}{entry['src_ip']}:{entry['src_port']} -> {entry['dst_ip']}:{entry['dst_port']}{Fore.RESET} = {entry['http_headers']['Content_Length']} bytes")
+#     for entry in detected_connections:
+#         print(
+#             f">> {Fore.RED}{entry['src_ip']}:{entry['src_port']} -> {entry['dst_ip']}:{entry['dst_port']}{Fore.RESET} = {entry['duration']} seconds")
 
 
-def print_known_c2_tls_certificates(detected_certificates):
-    print(
-        f"[{time.strftime('%H:%M:%S')}] [INFO] Listing information about detected malicious TLS certificates")
-    logging.info(
-        f"Listing information about detected malicious TLS certificates")
+# def print_connections_with_big_http_body_size(detected_connections):
+#     print(
+#         f"[{time.strftime('%H:%M:%S')}] [INFO] Listing connections with unusual big HTTP message body size")
+#     logging.info(
+#         f"Listing connections with unusual big HTTP message body size")
 
-    for entry in detected_certificates:
-        print(
-            f">> Found {Fore.RED}'{entry['malicious_value']}'{Fore.RESET} value associated with {Fore.RED}'{entry['c2_framework']}'{Fore.RESET} Command and control framework")
+#     for entry in detected_connections:
+#         print(
+#             f">> {Fore.RED}{entry['src_ip']}:{entry['src_port']} -> {entry['dst_ip']}:{entry['dst_port']}{Fore.RESET} = {entry['http_headers']['Content_Length']} bytes")
+
+
+# def print_known_c2_tls_certificates(detected_certificates):
+#     print(
+#         f"[{time.strftime('%H:%M:%S')}] [INFO] Listing information about detected malicious TLS certificates")
+#     logging.info(
+#         f"Listing information about detected malicious TLS certificates")
+
+#     for entry in detected_certificates:
+#         print(
+#             f">> Found {Fore.RED}'{entry['malicious_value']}'{Fore.RESET} value associated with {Fore.RED}'{entry['c2_framework']}'{Fore.RESET} Command and control framework")
 
 
 def print_detected_tor_nodes(detected_connections):
@@ -157,13 +157,13 @@ def print_dns_tunneling_indicators(detected_queries):
             f">> Queried {len(data['queries'])} unique subdomains for '{Fore.RED}{domain}{Fore.RESET}'")
 
 
-def print_detected_ja3_digests(detected_connections):
-    print(
-        f"[{time.strftime('%H:%M:%S')}] [INFO] Listing information about detected JA3 fingerprints")
-    logging.info(f"Listing information about detected JA3 fingerprints")
+# def print_detected_ja3_digests(detected_connections):
+#     print(
+#         f"[{time.strftime('%H:%M:%S')}] [INFO] Listing information about detected JA3 fingerprints")
+#     logging.info(f"Listing information about detected JA3 fingerprints")
 
-    print(
-        f">> Found {len(detected_connections)} potentially malicious JA3 fingerprint matches")
+#     print(
+#         f">> Found {len(detected_connections)} potentially malicious JA3 fingerprint matches")
     # for entry in detected_connections:
     #     print(f">> '{entry.get('type')}' : {Fore.RED}{entry.get('src_ip')}:{entry.get('src_port')} -> {entry.get('dst_ip')}:{entry.get('dst_port')}{Fore.RESET}")
 
@@ -227,8 +227,8 @@ class DetectionEngine:
         #     analyst_profile.tor_node_list_path)
         # self.crypto_domains = get_crypto_domains(
         #     analyst_profile.crypto_domain_list_path)
-        self.c2_tls_certificate_values = get_c2_tls_certificate_values(
-            analyst_profile.c2_tls_certificate_values_path)
+        # self.c2_tls_certificate_values = get_c2_tls_certificate_values(
+        #     analyst_profile.c2_tls_certificate_values_path)
         # self.ja3_rules = get_ja3_rules(analyst_profile.ja3_rules_path)
 
         self.detected_iocs['filepath'] = self.packet_parser.get_filepath()
@@ -309,107 +309,284 @@ class DetectionEngine:
             print(
                 f">> {Fore.RED}{entry.get('src_ip')}:{entry.get('src_port')} -> {entry.get('dst_ip')}:{entry.get('dst_port')}{Fore.RESET} = {entry.get('frequency')}/{len(self.packet_parser.external_tcp_connections)} connections")
 
-    def detect_long_connection(self):
+    # def detect_long_connection(self):
+    #     print(
+    #         f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for connections with long duration ...")
+    #     logging.info("Looking for connections with long duration")
+
+    #     detected = False
+    #     detected_connections = []
+
+    #     for connection in self.packet_parser.connections:
+
+    #         if 'TCP' in connection:
+
+    #             connection_arr = connection.split(" ")
+    #             src_ip, src_port = connection_arr[1].split(":")
+    #             dst_ip, dst_port = connection_arr[3].split(":")
+
+    #             # if src or dst ip is public, further process this connection
+    #             if not ip_address(src_ip).is_private or not ip_address(dst_ip).is_private:
+
+    #                 packets = self.packet_parser.connections[connection]
+    #                 first_packet = packets[0]
+    #                 last_packet = packets[-1]
+    #                 duration = last_packet.time - first_packet.time
+
+    #                 if duration > self.MAX_DURATION:
+    #                     detected = True
+    #                     entry = dict(
+    #                         src_ip=src_ip,
+    #                         src_port=src_port,
+    #                         dst_ip=dst_ip,
+    #                         dst_port=dst_port,
+    #                         duration=int(duration)
+    #                     )
+    #                     detected_connections.append(entry)
+    #                     self.detected_iocs['aggregated_ip_addresses'].add(
+    #                         src_ip)
+    #                     self.detected_iocs['aggregated_ip_addresses'].add(
+    #                         dst_ip)
+    #             else:
+    #                 continue
+
+    #     if detected:
+    #         self.c2_indicators_detected = True
+    #         self.c2_indicators_count += 1
+    #         self.detected_iocs['long_connection'] = detected_connections
+    #         count_detected = len(detected_connections)
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected {count_detected} connections with long duration{Fore.RESET}")
+    #         logging.info(
+    #             f"Detected {count_detected} connections with long duration. (detected_connections : {detected_connections})")
+    #         print_long_connections(detected_connections)
+    #     else:
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Connections with long duration not detected{Fore.RESET}")
+    #         logging.info(f"Connections with long duration not detected")
+
+    # def detect_big_http_body_size(self):
+    #     print(
+    #         f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for unusual big HTTP message body size ...")
+    #     logging.info("Looking for unusual big HTTP message body size")
+
+    #     detected = False
+    #     detected_connections = []
+
+    #     for session in self.packet_parser.http_sessions:
+    #         if session.get('http_headers'):
+    #             http_headers = session.get('http_headers')
+
+    #             if http_headers.get('Content_Length'):
+    #                 content_length = http_headers.get('Content_Length')
+
+    #                 if int(content_length) > self.MAX_HTTP_SIZE:
+    #                     detected = True
+    #                     detected_connections.append(session)
+
+    #                     self.detected_iocs['aggregated_ip_addresses'].add(
+    #                         session.get('src_ip'))
+    #                     self.detected_iocs['aggregated_ip_addresses'].add(
+    #                         session.get('dst_ip'))
+    #                     if http_headers.get('Host'):
+    #                         self.detected_iocs['aggregated_domain_names'].add(
+    #                             http_headers.get('Host'))
+    #                     if session.get('url'):
+    #                         self.detected_iocs['aggregated_urls'].add(
+    #                             session.get('url'))
+
+    #     if detected:
+    #         self.c2_indicators_detected = True
+    #         self.c2_indicators_count += 1
+    #         self.detected_iocs['big_HTTP_body_size'] = detected_connections
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected unusual big HTTP message body size{Fore.RESET}")
+    #         logging.info(f"Detected unusual big HTTP message body size")
+    #         print_connections_with_big_http_body_size(
+    #             detected_connections)
+    #     else:
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Unusual big HTTP message body size not detected{Fore.RESET}")
+    #         logging.info(f"Unusual big HTTP message body size not detected")
+
+    # def detect_known_c2_tls_values(self):
+    #     print(
+    #         f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for known malicious values in extracted data from TLS certificates ...")
+    #     logging.info(
+    #         "Looking for known malicious values in extracted data from TLS certificates")
+
+    #     detected_certificates = []
+
+    #     for entry in self.packet_parser.certificates:
+
+    #         issuer_values = entry.get("issuer").values()
+    #         subject_values = entry.get("subject").values()
+
+    #         for c2_framework, malicious_tls_values in self.c2_tls_certificate_values.items():
+    #             detected_value = False
+    #             detected_malicious_value = ""
+
+    #             for malicious_value in malicious_tls_values:
+
+    #                 if '+' in malicious_value:
+    #                     value_parts = malicious_value.split('+')
+
+    #                     is_value_detected = all(
+    #                         part in entry.get('serialNumber') or
+    #                         any(part in value for value in list(
+    #                             issuer_values) + list(subject_values))
+    #                         for part in value_parts
+    #                     )
+    #                     if is_value_detected:
+    #                         detected_value = True
+    #                         detected_malicious_value = malicious_value
+    #                 else:
+    #                     if malicious_value in entry.get('serialNumber'):
+    #                         detected_value = True
+    #                         detected_malicious_value = malicious_value
+
+    #                     for value in issuer_values:
+    #                         if malicious_value in value:
+    #                             detected_value = True
+    #                             detected_malicious_value = malicious_value
+
+    #                     for value in subject_values:
+    #                         if malicious_value in value:
+    #                             detected_value = True
+    #                             detected_malicious_value = malicious_value
+
+    #             if detected_value:
+    #                 entry['c2_framework'] = c2_framework
+    #                 entry['malicious_value'] = detected_malicious_value
+    #                 detected_certificates.append(entry)
+    #                 self.detected_iocs['aggregated_ip_addresses'].add(
+    #                     entry.get('src_ip'))
+    #                 self.detected_iocs['aggregated_ip_addresses'].add(
+    #                     entry.get('dst_ip'))
+
+    #     if detected_certificates:
+    #         self.c2_indicators_detected = True
+    #         self.c2_indicators_count += 1
+    #         self.detected_iocs['malicious_TLS_certificates'] = detected_certificates
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected known malicious values in extracted data from TLS certificates{Fore.RESET}")
+    #         # logging.info(
+    #         #     f"Detected known malicious values in extracted data from TLS certificates. (detected_certificates : {detected_certificates})")
+    #         # print_known_c2_tls_certificates(detected_certificates)
+    #     else:
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Known malicious values in extracted data from TLS certificates not detected{Fore.RESET}")
+    #         logging.info(
+    #             f"Known malicious values in extracted data from TLS certificates not detected")
+
+    def detect_tor_traffic(self):
         print(
-            f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for connections with long duration ...")
-        logging.info("Looking for connections with long duration")
+            f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for indicators of Tor network traffic ...")
+        logging.info("Looking for indicators of Tor network traffic")
 
-        detected = False
-        detected_connections = []
+        detected_tor_traffic = False
+        detected_tor_traffic_connections = []
+        detected_tor_nodes = set()
+        tor_traffic_seen_ips = set()
 
-        for connection in self.packet_parser.connections:
+        detected_tor_traffic_exit_nodes = False
+        detected_tor_exit_node_connections = []
+        detected_tor_exit_nodes = set()
+        tor_exit_nodes_seen_ips = set()
 
-            if 'TCP' in connection:
+        for connection in self.packet_parser.external_tcp_connections:
+            detected_tor_node = False
+            detected_tor_exit_node = False
 
-                connection_arr = connection.split(" ")
-                src_ip, src_port = connection_arr[1].split(":")
-                dst_ip, dst_port = connection_arr[3].split(":")
+            timestamp = connection[0]
+            src_ip = connection[1]
+            src_port = connection[2]
+            dst_ip = connection[3]
+            dst_port = connection[4]
 
-                # if src or dst ip is public, further process this connection
-                if not ip_address(src_ip).is_private or not ip_address(dst_ip).is_private:
+            if src_ip in self.tor_nodes:
+                detected_tor_node = True
+                detected_tor_nodes.add(src_ip)
+            elif dst_ip in self.tor_nodes:
+                detected_tor_node = True
+                detected_tor_nodes.add(dst_ip)
 
-                    packets = self.packet_parser.connections[connection]
-                    first_packet = packets[0]
-                    last_packet = packets[-1]
-                    duration = last_packet.time - first_packet.time
+            if detected_tor_node:
+                entry = dict(
+                    timestamp=timestamp,
+                    src_ip=src_ip,
+                    src_port=src_port,
+                    dst_ip=dst_ip,
+                    dst_port=dst_port
+                )
 
-                    if duration > self.MAX_DURATION:
-                        detected = True
-                        entry = dict(
-                            src_ip=src_ip,
-                            src_port=src_port,
-                            dst_ip=dst_ip,
-                            dst_port=dst_port,
-                            duration=int(duration)
-                        )
-                        detected_connections.append(entry)
-                        self.detected_iocs['aggregated_ip_addresses'].add(
-                            src_ip)
-                        self.detected_iocs['aggregated_ip_addresses'].add(
-                            dst_ip)
-                else:
-                    continue
+                keys_to_keep = ['src_ip', 'src_port', 'dst_ip', 'dst_port']
+                entry_filtered = {k: v for k,
+                                  v in entry.items() if k in keys_to_keep}
+                entry_frozenset = frozenset(entry_filtered.items())
 
-        if detected:
+                if entry_frozenset not in tor_traffic_seen_ips:
+                    detected_tor_traffic_connections.append(entry)
+                    self.detected_iocs['aggregated_ip_addresses'].add(src_ip)
+                    self.detected_iocs['aggregated_ip_addresses'].add(dst_ip)
+                    tor_traffic_seen_ips.add(entry_frozenset)
+                    detected_tor_traffic = True
+
+            if src_ip in self.tor_exit_nodes:
+                detected_tor_exit_node = True
+                detected_tor_exit_nodes.add(src_ip)
+            elif dst_ip in self.tor_exit_nodes:
+                detected_tor_exit_node = True
+                detected_tor_exit_nodes.add(dst_ip)
+
+            if detected_tor_exit_node:
+                entry = dict(
+                    timestamp=timestamp,
+                    src_ip=src_ip,
+                    src_port=src_port,
+                    dst_ip=dst_ip,
+                    dst_port=dst_port
+                )
+
+                if entry_frozenset not in tor_exit_nodes_seen_ips:
+                    detected_tor_exit_node_connections.append(entry)
+                    self.detected_iocs['aggregated_ip_addresses'].add(src_ip)
+                    self.detected_iocs['aggregated_ip_addresses'].add(dst_ip)
+                    tor_exit_nodes_seen_ips.add(entry_frozenset)
+                    detected_tor_traffic_exit_nodes = True
+
+        if detected_tor_traffic:
             self.c2_indicators_detected = True
             self.c2_indicators_count += 1
-            self.detected_iocs['long_connection'] = detected_connections
-            count_detected = len(detected_connections)
+            self.detected_iocs['Tor_nodes'] = list(detected_tor_nodes)
+            self.detected_iocs['Tor_network_traffic'] = detected_tor_traffic_connections
             print(
-                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected {count_detected} connections with long duration{Fore.RESET}")
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected network traffic to public TOR nodes{Fore.RESET}")
             logging.info(
-                f"Detected {count_detected} connections with long duration. (detected_connections : {detected_connections})")
-            print_long_connections(detected_connections)
+                f"Detected network traffic to public TOR nodes. (detected_ips : {detected_tor_traffic_connections})")
+            print_detected_tor_nodes(detected_tor_traffic_connections)
         else:
             print(
-                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Connections with long duration not detected{Fore.RESET}")
-            logging.info(f"Connections with long duration not detected")
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Network traffic to public TOR nodes not detected{Fore.RESET}")
+            logging.info(f"Network traffic to public TOR nodes not detected")
 
-    def detect_big_http_body_size(self):
-        print(
-            f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for unusual big HTTP message body size ...")
-        logging.info("Looking for unusual big HTTP message body size")
-
-        detected = False
-        detected_connections = []
-
-        for session in self.packet_parser.http_sessions:
-            if session.get('http_headers'):
-                http_headers = session.get('http_headers')
-
-                if http_headers.get('Content_Length'):
-                    content_length = http_headers.get('Content_Length')
-
-                    if int(content_length) > self.MAX_HTTP_SIZE:
-                        detected = True
-                        detected_connections.append(session)
-
-                        self.detected_iocs['aggregated_ip_addresses'].add(
-                            session.get('src_ip'))
-                        self.detected_iocs['aggregated_ip_addresses'].add(
-                            session.get('dst_ip'))
-                        if http_headers.get('Host'):
-                            self.detected_iocs['aggregated_domain_names'].add(
-                                http_headers.get('Host'))
-                        if session.get('url'):
-                            self.detected_iocs['aggregated_urls'].add(
-                                session.get('url'))
-
-        if detected:
+        if detected_tor_traffic_exit_nodes:
             self.c2_indicators_detected = True
             self.c2_indicators_count += 1
-            self.detected_iocs['big_HTTP_body_size'] = detected_connections
+            self.detected_iocs['Tor_exit_nodes'] = list(
+                detected_tor_exit_nodes)
+            self.detected_iocs['Tor_exit_network_traffic'] = detected_tor_exit_node_connections
             print(
-                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected unusual big HTTP message body size{Fore.RESET}")
-            logging.info(f"Detected unusual big HTTP message body size")
-            print_connections_with_big_http_body_size(
-                detected_connections)
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected outgoing network traffic to TOR exit nodes{Fore.RESET}")
+            logging.info(
+                f"Detected outgoing network traffic to TOR exit nodes. (detected_ips : {detected_tor_exit_node_connections})")
+            print_detected_tor_exit_nodes(detected_tor_exit_node_connections)
         else:
             print(
-                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Unusual big HTTP message body size not detected{Fore.RESET}")
-            logging.info(f"Unusual big HTTP message body size not detected")
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Outgoing network traffic to TOR exit nodes not detected{Fore.RESET}")
+            logging.info(
+                f"Outgoing network traffic to TOR exit nodes not detected")
 
-    
     def detect_dga(self):
         # source : https://lindevs.com/disable-tensorflow-2-debugging-information
         os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # suppress TensorFlow logging
@@ -508,7 +685,89 @@ class DetectionEngine:
                 f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}DNS Tunneling technique not detected{Fore.RESET}")
             logging.info(f"DNS Tunneling technique not detected")
 
-    
+    def detect_malicious_ja3_digest(self):
+        print(
+            f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for known malicious JA3 fingerprints ...")
+        logging.info("Looking for known malicious JA3 fingerprints")
+
+        detected = False
+        detected_connections = []
+
+        for ja3_dict in self.packet_parser.ja3_digests:
+            for ja3_rule in self.ja3_rules:
+                # print(f"Comparing {ja3_dict.get('ja3_digest')} and {ja3_rule.get('hash')}")
+
+                if ja3_dict.get('ja3_digest') == ja3_rule.get('hash'):
+                    detected = True
+
+                    timestamp = ja3_dict.get('timestamp')
+                    ja3 = ja3_dict.get('ja3')
+                    ja3_digest = ja3_dict.get('ja3_digest')
+                    activity_type = ja3_rule.get('type')
+                    src_ip = ja3_dict.get('source_ip')
+                    src_port = ja3_dict.get('source_port')
+                    dst_ip = ja3_dict.get('destination_ip')
+                    dst_port = ja3_dict.get('destination_port')
+
+                    entry = dict(
+                        timestamp=timestamp,
+                        ja3=ja3,
+                        ja3_digest=ja3_digest,
+                        type=activity_type,
+                        src_ip=src_ip,
+                        src_port=src_port,
+                        dst_ip=dst_ip,
+                        dst_port=dst_port
+                    )
+                    detected_connections.append(entry)
+                    self.detected_iocs['aggregated_ip_addresses'].add(
+                        src_ip)
+                    self.detected_iocs['aggregated_ip_addresses'].add(
+                        dst_ip)
+
+        if detected:
+            self.c2_indicators_detected = True
+            self.c2_indicators_count += 1
+            self.detected_iocs['JA3'] = detected_connections
+            print(
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected known malicious JA3 fingerprints{Fore.RESET}")
+            logging.info(
+                f"Detected known malicious JA3 fingerprints. (detected_connections : {detected_connections})")
+            print_detected_ja3_digests(detected_connections)
+        else:
+            print(
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Known malicious JA3 fingerprints not detected{Fore.RESET}")
+            logging.info(f"Known malicious JA3 fingerprints not detected")
+
+    # def detect_crypto_domains(self):
+    #     print(
+    #         f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for network traffic to crypto / cryptojacking based sites ...")
+    #     logging.info(
+    #         f"Looking for network traffic to crypto / cryptojacking based sites")
+
+    #     detected = False
+    #     detected_domains = []
+
+    #     for domain in self.packet_parser.domain_names:
+    #         if domain in self.crypto_domains:
+    #             detected = True
+    #             detected_domains.append(domain)
+    #             self.detected_iocs['aggregated_domain_names'].add(domain)
+
+    #     if detected:
+    #         self.c2_indicators_detected = True
+    #         self.c2_indicators_count += 1
+    #         self.detected_iocs['crypto_domains'] = detected_domains
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.RED}Detected crypto / cryptojacking based sites{Fore.RESET}")
+    #         logging.info(
+    #             f"Detected crypto / cryptojacking based sites (detected_domains : {detected_domains})")
+    #         print_crypto_domains(detected_domains)
+    #     else:
+    #         print(
+    #             f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}Crypto / cryptojacking based sites not detected{Fore.RESET}")
+    #         logging.info(f"Crypto / cryptojacking based sites not detected")
+
     # ----------------------------------------------------------------------------------------------------------------
     # ------------------------------------------------ C2Hunter Plugin -----------------------------------------------
     # ----------------------------------------------------------------------------------------------------------------
@@ -781,74 +1040,74 @@ class DetectionEngine:
 
         return c2_detected, detected_domains
 
-    def detect_c2_urls(self, c2hunter_db):
-        print(f"[{time.strftime('%H:%M:%S')}] [INFO] Detecting C2 related URLs ...")
-        logging.info("Detecting C2 related URLs")
+    # def detect_c2_urls(self, c2hunter_db):
+    #     print(f"[{time.strftime('%H:%M:%S')}] [INFO] Detecting C2 related URLs ...")
+    #     logging.info("Detecting C2 related URLs")
 
-        connection = sqlite3.connect(c2hunter_db)
-        cursor = connection.cursor()
+    #     connection = sqlite3.connect(c2hunter_db)
+    #     cursor = connection.cursor()
 
-        detected_urls = []
-        c2_detected = False
+    #     detected_urls = []
+    #     c2_detected = False
 
-        url_chunks = [self.packet_parser.unique_urls[i:i + self.CHUNK_SIZE]
-                      for i in range(0, len(self.packet_parser.unique_urls), self.CHUNK_SIZE)]
+    #     url_chunks = [self.packet_parser.unique_urls[i:i + self.CHUNK_SIZE]
+    #                   for i in range(0, len(self.packet_parser.unique_urls), self.CHUNK_SIZE)]
 
-        urlhaus_results = []
-        threatfox_results = []
-        cursor = connection.cursor()
+    #     urlhaus_results = []
+    #     threatfox_results = []
+    #     cursor = connection.cursor()
 
-        for chunk in url_chunks:
-            # print(chunk)
+    #     for chunk in url_chunks:
+    #         # print(chunk)
 
-            urlhaus_query = '''
-                        SELECT url FROM urlhaus
-                        WHERE {}'''.format(' OR '.join(["url LIKE '%{}%'".format(url) for url in chunk]))
-            # print(urlhaus_query)
-            cursor.execute(urlhaus_query)
-            urlhaus_results += cursor.fetchall()
+    #         urlhaus_query = '''
+    #                     SELECT url FROM urlhaus
+    #                     WHERE {}'''.format(' OR '.join(["url LIKE '%{}%'".format(url) for url in chunk]))
+    #         # print(urlhaus_query)
+    #         cursor.execute(urlhaus_query)
+    #         urlhaus_results += cursor.fetchall()
 
-            threatfox_query = '''
-                            SELECT ioc FROM threatfox 
-                            WHERE ioc_type='url' 
-                            AND {}'''.format(' OR '.join(["ioc LIKE '%{}'".format(url) for url in chunk]))
-            # print(threatfox_query)
-            cursor.execute(threatfox_query)
-            threatfox_results += cursor.fetchall()
+    #         threatfox_query = '''
+    #                         SELECT ioc FROM threatfox 
+    #                         WHERE ioc_type='url' 
+    #                         AND {}'''.format(' OR '.join(["ioc LIKE '%{}'".format(url) for url in chunk]))
+    #         # print(threatfox_query)
+    #         cursor.execute(threatfox_query)
+    #         threatfox_results += cursor.fetchall()
 
-        connection.close()
+    #     connection.close()
 
-        if urlhaus_results:
-            c2_detected = True
-            urlhaus_results = [url[0] for url in urlhaus_results]
+    #     if urlhaus_results:
+    #         c2_detected = True
+    #         urlhaus_results = [url[0] for url in urlhaus_results]
 
-        if threatfox_results:
-            c2_detected = True
-            threatfox_results = [url[0] for url in threatfox_results]
+    #     if threatfox_results:
+    #         c2_detected = True
+    #         threatfox_results = [url[0] for url in threatfox_results]
 
-        detected_urls = list(
-            set(itertools.chain(urlhaus_results, threatfox_results)))
+    #     detected_urls = list(
+    #         set(itertools.chain(urlhaus_results, threatfox_results)))
 
-        return c2_detected, detected_urls
+    #     return c2_detected, detected_urls
 
-    def get_c2_http_sessions(self, detected_urls):
+    # def get_c2_http_sessions(self, detected_urls):
 
-        parsed_urls = []
-        for url in detected_urls:
-            parsed_url = urlparse(url)
-            domain = parsed_url.netloc
-            path = parsed_url.path
-            parsed_urls.append(domain + path)
+    #     parsed_urls = []
+    #     for url in detected_urls:
+    #         parsed_url = urlparse(url)
+    #         domain = parsed_url.netloc
+    #         path = parsed_url.path
+    #         parsed_urls.append(domain + path)
 
-        detected_urls = parsed_urls
-        c2_http_sessions = []
+    #     detected_urls = parsed_urls
+    #     c2_http_sessions = []
 
-        for session in self.packet_parser.http_sessions:
-            for c2_url in detected_urls:
-                if session.get('url') == c2_url:
-                    c2_http_sessions.append(session)
+    #     for session in self.packet_parser.http_sessions:
+    #         for c2_url in detected_urls:
+    #             if session.get('url') == c2_url:
+    #                 c2_http_sessions.append(session)
 
-        return c2_http_sessions
+    #     return c2_http_sessions
 
     # ----------------------------------------------------------------------------------------------------------------
 
@@ -867,6 +1126,11 @@ class DetectionEngine:
         self.detected_iocs['aggregated_ip_addresses'] = public_ips
 
         return self.detected_iocs
+    def detect_from_ml_model(self,input_file):
+        model = ml_model.load("model")
+        df = ml_model.extract_pcap_data(input_file)
+        recent_df = ml_model.apply(model,df,"")
+        print(recent_df)
 
     def get_c2_indicators_count(self):
         return self.c2_indicators_count

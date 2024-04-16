@@ -1,0 +1,47 @@
+{
+    "filepath": "pcaps/replayAttacks.pcap",
+    "analysis_timestamp": "2024-04-16 06:08:45",
+    "capture_sha256": "fdb369df1add7d7c3449452f2c2004d05a802a0c26b731281f87cd998a2a59d5",
+    "capture_timestamps": {
+        "start_time": "2021-02-11 18:32:12",
+        "end_time": "2021-02-11 19:02:32"
+    },
+    "number_of_external_tcp_connections": 0,
+    "number_of_unique_domain_names": 13,
+    "number_of_unique_public_IP_addresses": 1,
+    "number_of_HTTP_sessions": 0,
+    "number_of_extracted_URLs": 0,
+    "number_of_extracted_TLS_certificates": null,
+    "extracted_domains": [
+        "6.0.168.192.in-addr.arpa",
+        "5.0.168.192.in-addr.arpa",
+        "17.0.168.192.in-addr.arpa",
+        "33.0.168.192.in-addr.arpa",
+        "36.0.168.192.in-addr.arpa",
+        "4.0.168.192.in-addr.arpa",
+        "3.0.168.192.in-addr.arpa",
+        "20.0.168.192.in-addr.arpa",
+        "21.0.168.192.in-addr.arpa",
+        "0.0.0.0.in-addr.arpa",
+        "1.0.168.192.in-addr.arpa",
+        "9.0.168.192.in-addr.arpa",
+        "11.0.168.192.in-addr.arpa"
+    ],
+    "public_src_ip_addresses": [
+        "194.177.210.210"
+    ],
+    "public_src_ip_addresses_count": {
+        "194.177.210.210": 27
+    },
+    "public_dst_ip_addresses": [
+        "194.177.210.210"
+    ],
+    "public_dst_ip_addresses_count": {
+        "194.177.210.210": 27
+    },
+    "combined_ip_addresses_count": {
+        "194.177.210.210": 54
+    },
+    "extracted_urls": [],
+    "http_sessions": []
+}

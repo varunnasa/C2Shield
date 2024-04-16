@@ -1,18 +1,6 @@
 {
-    "aggregated_ip_addresses": [
-        "147.32.84.165",
-        "213.246.53.125"
-    ],
+    "aggregated_ip_addresses": [],
     "aggregated_domain_names": [],
     "aggregated_urls": [],
-    "filepath": "botnet.pcap",
-    "excessive_frequency": [
-        {
-            "src_ip": "147.32.84.165",
-            "src_port": 2343,
-            "dst_ip": "213.246.53.125",
-            "dst_port": 5296,
-            "frequency": 34986
-        }
-    ]
+    "filepath": "pcaps/fromvm.pcap"
 }
