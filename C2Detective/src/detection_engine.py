@@ -156,6 +156,15 @@ def print_dns_tunneling_indicators(detected_queries):
         print(
             f">> Queried {len(data['queries'])} unique subdomains for '{Fore.RED}{domain}{Fore.RESET}'")
 
+def print_dns_tunneling_indicators_model(detected_queries):
+    print(f"[{time.strftime('%H:%M:%S')}] [INFO] Listing information about detected DNS Tunneling technique")
+    logging.info(
+        f"Listing information about detected DNS Tunneling technique")
+
+    for data in detected_queries:
+        print(
+            f">> Queried from SOURCE: {data['src']} with Query: '{Fore.RED}{data['query']}{Fore.RESET}'")
+
 
 # def print_detected_ja3_digests(detected_connections):
 #     print(
@@ -684,6 +693,56 @@ class DetectionEngine:
             print(
                 f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}DNS Tunneling technique not detected{Fore.RESET}")
             logging.info(f"DNS Tunneling technique not detected")
+    def detect_from_ml_model(self,input_file):
+        print(
+            f"[{time.strftime('%H:%M:%S')}] [INFO] Looking for indicators of DNS Tunneling technique Using ML Model ...")
+        logging.info("Looking for indicators of DNS Tunneling using ML Model")
+        model = ml_model.load("model")
+        df = ml_model.extract_zeek_data(input_file)
+        recent_df = ml_model.apply(model,df,"")
+        filtered_df = recent_df[recent_df['pred_is_dns_data_exfiltration'] == 1]
+        detected_model = False
+        self.detected_iocs["DNS_Tunneling_Model"] = {}
+        # print(filtered_df)
+        if not filtered_df.empty:
+          detected_model = True
+          self.c2_indicators_detected = True
+          self.c2_indicators_count += 1
+          filtered_dict = filtered_df.to_dict(orient='records')
+          self.detected_iocs["DNS_Tunneling_Model"] = filtered_dict
+          print(
+                f"[{time.strftime('%H:%M:%S')}] [INFO]{Fore.RED}Detected DNS Tunneling from Model{Fore.RESET}")
+          logging.info(
+                f"Detected DNS Tunneling technique from Model. (detected_queries : {filtered_dict})")
+          print_dns_tunneling_indicators_model(filtered_dict)
+        else:
+          print(
+                f"[{time.strftime('%H:%M:%S')}] [INFO] {Fore.GREEN}DNS Tunneling not detected by ML Model{Fore.RESET}")
+          logging.info(f"DNS Tunneling technique not detected by ML Model")
+          
+        print("model executed succesfully")
+        recent_df = recent_df.dropna()
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
+
+        # Define the file handler for the log file
+        log_file_path = 'dataframe_log.log'
+        file_handler = logging.FileHandler(log_file_path,mode='a')
+        file_handler.setLevel(logging.INFO)
+
+        # Define the formatter
+        formatter = logging.Formatter('%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+        file_handler.setFormatter(formatter)
+
+        # Add the file handler to the logger
+        logger.addHandler(file_handler)
+
+        # Convert the dataframe to a string and log it
+        # recent_df = recent_df[recent_df["pred_is_dns_data_exfiltration"]!=]
+        df_str = recent_df.to_string(index=False)
+        logger.info(f"File:{input_file} , DataFrame:\n%s", df_str)
+
+        print("DataFrame stored in log file:", log_file_path)
 
     def detect_malicious_ja3_digest(self):
         print(
@@ -1126,33 +1185,7 @@ class DetectionEngine:
         self.detected_iocs['aggregated_ip_addresses'] = public_ips
 
         return self.detected_iocs
-    def detect_from_ml_model(self,input_file):
-        model = ml_model.load("model")
-        df = ml_model.extract_zeek_data(input_file)
-        recent_df = ml_model.apply(model,df,"")
-        print("model executed succesfully")
-        recent_df = recent_df.dropna()
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.INFO)
 
-        # Define the file handler for the log file
-        log_file_path = 'dataframe_log.log'
-        file_handler = logging.FileHandler(log_file_path,mode='a')
-        file_handler.setLevel(logging.INFO)
-
-        # Define the formatter
-        formatter = logging.Formatter('%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-        file_handler.setFormatter(formatter)
-
-        # Add the file handler to the logger
-        logger.addHandler(file_handler)
-
-        # Convert the dataframe to a string and log it
-        # recent_df = recent_df[recent_df["pred_is_dns_data_exfiltration"]!=]
-        df_str = recent_df.to_string(index=False)
-        logger.info(f"File:{input_file} , DataFrame:\n%s", df_str)
-
-        print("DataFrame stored in log file:", log_file_path)
 
     def get_c2_indicators_count(self):
         return self.c2_indicators_count
