@@ -404,6 +404,12 @@ def main():
         detection_engine.detect_dga()
     detection_engine.detect_from_ml_model(input_file)
     detection_engine.detect_dns_tunneling()
+    print("#####################################################################")
+    print(detection_engine.detected_iocs["DNS_Tunneling"])
+    print("#####################################################################")
+    print(detection_engine.detected_iocs["DNS_Tunneling_Model"])
+    print("#####################################################################")
+
     # detection_engine.detect_tor_traffic()
     # detection_engine.detect_crypto_domains()
 
