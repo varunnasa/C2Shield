@@ -245,14 +245,14 @@ def extract_pcap_data(pcap_file):
         return None
 
 # Prompt user to input the path of the pcap file
-pcap_file = '/content/drive/MyDrive/botnet-capture-20110810-neris.pcap'
-df = extract_pcap_data(pcap_file)
+# pcap_file = '/content/drive/MyDrive/botnet-capture-20110810-neris.pcap'
+# df = extract_pcap_data(pcap_file)
 
-if df is not None:
-    print("Data extracted successfully:")
-    print(df.head())
-    model = load("model")
-    recent_df = apply(model,df,"")
-    print(recent_df)
-else:
-    print("Failed to extract data.")
+# if df is not None:
+#     print("Data extracted successfully:")
+#     print(df.head())
+#     model = load("model")
+#     recent_df = apply(model,df,"")
+#     print(recent_df)
+# else:
+#     print("Failed to extract data.")
