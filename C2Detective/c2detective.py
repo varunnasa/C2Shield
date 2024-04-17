@@ -369,14 +369,12 @@ def main():
     # without C2hunter and DGA (args.dga) = 10;    
     if plugins:
         if plugins.get('C2Hunter') and args.dga:
-            print("---------------gya--------------")
             c2_indicators_total_count = 14
             plugin_c2hunter = True
             dga_detection = True
 
         else:  # without DGA detection
             c2_indicators_total_count = 13
-            print("--------------nhi gya-----------")
             plugin_c2hunter = True
             dga_detection = False
     elif args.dga:  # without C2Hunter; with DGA detection
@@ -404,11 +402,33 @@ def main():
         detection_engine.detect_dga()
     detection_engine.detect_from_ml_model(input_file)
     detection_engine.detect_dns_tunneling()
-    print("#####################################################################")
-    print(detection_engine.detected_iocs["DNS_Tunneling"])
-    print("#####################################################################")
-    print(detection_engine.detected_iocs["DNS_Tunneling_Model"])
-    print("#####################################################################")
+
+    print("################################SCIRPT LOGS#####################################")
+    if "excessive_frequency" in detection_engine.detected_iocs:
+        # Open or create a log file for "excessive_frequency" IOCs
+        with open("scripts.log", "a") as f:
+            # Write the detected IOCs to the log file
+            f.write("###"+"\n")
+            f.write(f"[{time.strftime('%H:%M:%S')}] EXCESSIVE FREQUENCY:" + "\n")
+            for i in detection_engine.detected_iocs["excessive_frequency"]:
+                f.write(str(i) + "\n")
+
+    # Check if "DNS_Tunneling" is in detected IOCs
+    if "DNS_Tunneling" in detection_engine.detected_iocs:
+        # Open or create a log file for "DNS_Tunneling" IOCs
+        with open("scripts.log", "a") as f:
+            f.write("###"+"\n")
+            f.write(f"[{time.strftime('%H:%M:%S')}] DETECTED IOCS FOR DNS TUNNELING:" + "\n")
+            for i in detection_engine.detected_iocs["DNS_Tunneling"]:
+                f.write(str(i) + "\n")
+    print("#################################MODEL LOGS####################################")
+    if "DNS_Tunneling_Model" in detection_engine.detected_iocs:
+      # Open or create a log file for "DNS_Tunneling_Model" IOCs
+      with open("DNS_Tunneling_Model.log", "a") as f:
+          f.write("###"+"\n")
+          f.write(f"[{time.strftime('%H:%M:%S')}] DNS TUNNELING DETECTED BY ML MODEL " + "\n")
+          for entry in detection_engine.detected_iocs["DNS_Tunneling_Model"]:
+              f.write(str(entry) + "\n")
 
     # detection_engine.detect_tor_traffic()
     # detection_engine.detect_crypto_domains()
